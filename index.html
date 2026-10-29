@@ -2,18 +2,113 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <title>マビノギ生産ナビ</title>
 <style>
-body{font-family:sans-serif;background:#142b3b;color:white;padding:20px}
-h1{color:#9be7dd}
-input{padding:14px;width:90%;border-radius:10px}
+*{box-sizing:border-box}
+body{margin:0;background:#102734;color:#eef8f7;font-family:-apple-system,sans-serif}
+header{padding:22px 16px;background:#183c48}
+h1{margin:0;color:#a2e8d8;font-size:24px}
+small{color:#b4cbc9}
+main{padding:15px;max-width:700px;margin:auto}
+nav{display:flex;gap:6px;margin:14px 0}
+button{border:0;border-radius:10px;padding:12px;background:#35636b;color:white;font-weight:bold}
+nav button{flex:1;padding:10px 4px}
+button.active,.primary{background:#a2e8d8;color:#12343d}
+input,select{width:100%;padding:12px;border:1px solid #507079;border-radius:9px;background:#f7fffe;color:#122b32;font-size:16px;margin:5px 0 10px}
+label{display:block;margin-top:8px;font-size:14px}
+.card{background:#1b3b48;padding:15px;border-radius:13px;margin:12px 0}
+h2{font-size:19px;margin:4px 0 12px}
+.muted{color:#b5d1d0;font-size:13px}
+.row{display:flex;gap:8px;align-items:center}
+.row>*{flex:1;min-width:0}
+.hidden{display:none}
+.item{border-top:1px solid #46616b;padding:12px 0}
+.item:first-child{border:0}
+.item button{padding:8px}
 </style>
 </head>
 <body>
-<h1>⚒️ マビノギ生産ナビ</h1>
-<p>素材・製作レシピ検索</p>
-<input placeholder="素材名を入力">
-<p>アプリの準備ができました！</p>
+<header><h1>⚒️ マビノギ生産ナビ</h1><small>素材・加工レシピ・在庫管理</small></header>
+<main>
+<nav>
+<button id="tab0" class="active" onclick="tab(0)">レシピ</button>
+<button id="tab1" onclick="tab(1)">在庫</button>
+<button id="tab2" onclick="tab(2)">登録</button>
+</nav>
+<section id="page0">
+<div class="card">
+<h2>🔎 レシピ検索</h2>
+<input id="search" placeholder="アイテム名・素材名で検索" oninput="render()">
+<div id="results"></div>
+</div>
+</section>
+<section id="page1" class="hidden">
+<div class="card"><h2>📦 素材の在庫</h2><div id="inventory"></div></div>
+</section>
+<section id="page2" class="hidden">
+<div class="card">
+<h2>➕ レシピ登録</h2>
+<label>製作アイテム名</label><input id="recipeName" placeholder="例：加工した木材">
+<label>材料名</label><input id="materialName" placeholder="例：木材">
+<label>1個作るのに必要な材料数</label><input id="materialQty" type="number" min="1" value="1">
+<button class="primary" onclick="addRecipe()">レシピを保存</button>
+<p class="muted">複数材料のレシピは、同じ製作アイテム名で材料ごとに登録できます。</p>
+</div>
+<div class="card">
+<h2>📋 登録したレシピ</h2><div id="savedRecipes"></div>
+</div>
+</section>
+</main>
+<script>
+const key="mabinogi_navi_v1";
+let db;
+try{db=JSON.parse(localStorage.getItem(key))||{recipes:[],stock:{}}}catch(e){db={recipes:[],stock:{}}}
+if(!Array.isArray(db.recipes))db.recipes=[];
+if(!db.stock)db.stock={};
+function save(){localStorage.setItem(key,JSON.stringify(db))}
+function el(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function tab(n){
+for(let i=0;i<3;i++){el("page"+i).classList.toggle("hidden",i!==n);el("tab"+i).classList.toggle("active",i===n)}
+render()
+}
+function addRecipe(){
+let name=el("recipeName").value.trim(),mat=el("materialName").value.trim(),qty=Number(el("materialQty").value);
+if(!name||!mat||!Number.isInteger(qty)||qty<1){alert("名前と1以上の材料数を入力してね");return}
+db.recipes.push({name,mat,qty});save();
+el("recipeName").value="";el("materialName").value="";
+render();alert("保存したよ！")
+}
+function changeStock(mat,v){
+let n=Number(v);if(!Number.isInteger(n)||n<0)return;
+db.stock[mat]=n;save();render()
+}
+function delRecipe(i){
+if(!confirm("この材料行を削除する？"))return;
+db.recipes.splice(i,1);save();render()
+}
+function render(){
+let q=el("search").value.trim().toLowerCase();
+let names=[...new Set(db.recipes.map(r=>r.name))].filter(name=>db.recipes.some(r=>r.name===name&&(name.toLowerCase().includes(q)||r.mat.toLowerCase().includes(q))));
+el("results").innerHTML=names.length?names.map((name,i)=>{
+let rs=db.recipes.filter(r=>r.name===name);
+return '<div class="item"><b>'+esc(name)+'</b><label>作る個数</label><input type="number" min="1" value="1" id="count'+i+'" oninput="calc('+i+')"><div id="calc'+i+'"></div></div>'
+}).join(""):'<p class="muted">レシピがありません。「登録」から追加してね。</p>';
+names.forEach((name,i)=>{window["recipe"+i]=db.recipes.filter(r=>r.name===name);calc(i)});
+let mats=[...new Set([...Object.keys(db.stock),...db.recipes.map(r=>r.mat)])];
+el("inventory").innerHTML=mats.length?mats.map((mat,i)=>'<div class="item"><b>'+esc(mat)+'</b><input aria-label="在庫数" type="number" min="0" value="'+(db.stock[mat]||0)+'" onchange="changeStock('+JSON.stringify(mat).replace(/"/g,"&quot;")+',this.value)"></div>').join(""):'<p class="muted">レシピを登録すると材料が表示されるよ。</p>';
+el("savedRecipes").innerHTML=db.recipes.length?db.recipes.map((r,i)=>'<div class="item">'+esc(r.name)+' ← '+esc(r.mat)+' × '+r.qty+' <button onclick="delRecipe('+i+')">削除</button></div>').join(""):'<p class="muted">まだ登録がないよ。</p>'
+}
+function calc(i){
+let count=Math.max(1,Math.floor(Number(el("count"+i).value)||1));
+el("calc"+i).innerHTML=window["recipe"+i].map(r=>{
+let need=r.qty*count,have=db.stock[r.mat]||0;
+return '<p>'+esc(r.mat)+'：必要 '+need+' / 在庫 '+have+' / <b>不足 '+Math.max(0,need-have)+'</b></p>'
+}).join("")
+}
+render()
+</script>
 </body>
 </html>
