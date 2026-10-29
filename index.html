@@ -11,7 +11,44 @@ const raw=Object.fromEntries(Object.entries(DB).map(([k,v])=>[k,v.slice(1)]));co
 function materialCard(r){let n=r[0],loc=places.find(x=>x[2]===n);return `<div class="panel"><div class="row"><div class="title">${esc(n)}</div><span class="tag">素材</span></div><div class="meta">使い道：${val(r,7)}<br>入手方法：${esc(r[2]||loc?.[3]||'未登録')}<br>採集場所：${esc(r[3]||loc?.[1]||'未登録')}<br>加工元：${val(r,4)}<br>所持数：<b class="count">${Number(saved.stock[n]??r[8]??0)}</b><br>メモ：${esc(saved.memo[n]||'なし')}</div><button class="btn2 topspace" onclick="goStock('${encodeURIComponent(n)}')">在庫を編集</button></div>`}
 function craftCard(r){return `<div class="panel"><div class="row"><div class="title">${esc(r[1])}</div><span class="tag">${esc(r[0])}</span></div><div class="meta">必要スキル：${val(r,3)} / Lv ${val(r,4)}<br>設備：${val(r,2)}<br>素材：${[5,7,9,11].filter(i=>r[i]).map(i=>esc(r[i])+' × '+esc(r[i+1]||'?')).join('、')||'未登録'}<br>確認状況：${val(r,14)}</div><button class="btn2 topspace" onclick="goCraft(${crafts.indexOf(r)})">製作数を計算</button></div>`}
 function renderSearch(){let q=document.getElementById('query').value.trim().toLowerCase();let a=materials.filter(r=>r.join(' ').toLowerCase().includes(q)),b=crafts.filter(r=>r.join(' ').toLowerCase().includes(q));if(!q){a=a.slice(0,12);b=b.slice(0,5)}document.getElementById('resultCount').textContent=q?`${a.length+b.length}件見つかりました`:'登録データから探す';document.getElementById('searchResults').innerHTML=a.map(materialCard).join('')+b.map(craftCard).join('')||'<div class="empty">該当するデータがありません</div>'}
-function renderCraft(){let r=crafts[+document.getElementById('craftSelect').value];if(!r)return;let qty=Math.max(1,Number(document.getElementById('craftQty').value)||1);let html=`<h2>${esc(r[1])}</h2><div class="meta">${val(r,0)} ／ ${val(r,3)} ／ 必要Lv ${val(r,4)}<br>設備：${val(r,2)}</div><h2>必要素材</h2>`;for(let i of [5,7,9,11]){if(!r[i])continue;let n=r[i],unit=Number(r[i+1]),need=Number.isFinite(unit)&&unit>0?unit*qty:null,have=Number(saved.stock[n]||0);html+=`<div class="panel"><div class="row"><b>${esc(n)}</b><span>${need===null?'数量未登録':`必要 ${need}個`}</span></div><div class="meta">所持 ${have}個　${need===null?'<span class="warn">数量の確認が必要</span>':`<span class="count">不足 ${Math.max(0,need-have)}個</span>`}</div>${need===null?'':processForCraft(n,need)}</div>`}document.getElementById('craftDetail').innerHTML=html}
+function renderCraft(){
+ let r=crafts[+document.getElementById('craftSelect').value];if(!r)return;
+ let qty=Math.max(1,Math.ceil(Number(document.getElementById('craftQty').value)||1));
+ let html=`<h2>${esc(r[1])}</h2><div class="meta">${val(r,0)} ／ ${val(r,3)} ／ 必要Lv ${val(r,4)}<br>設備：${val(r,2)}</div><h2>必要素材</h2>`;
+ let needs=[];
+ for(let i of [5,7,9,11]){if(!r[i])continue;let n=r[i],unit=Number(r[i+1]),need=Number.isFinite(unit)&&unit>0?unit*qty:null,have=Number(saved.stock[n]||0);
+  html+=`<div class="panel"><div class="row"><b>${esc(n)}</b><span>${need===null?'数量未登録':`必要 ${need}個`}</span></div><div class="meta">所持 ${have}個　${need===null?'<span class="warn">数量の確認が必要</span>':`<span class="count">不足 ${Math.max(0,need-have)}個</span>`}</div></div>`;
+  if(need!==null)needs.push([n,need]);
+ }
+ html+='<h2>🌿 原材料までの自動計算</h2><p class="mini">所持品を差し引き、足りない加工品を必要な回数だけ加工します。余剰完成品の使い回しも計算します。大成功は含みません。</p>';
+ let plan=buildCraftPlan(needs);
+ html+=plan.steps.length?plan.steps.map(x=>`<div class="panel"><b>${esc(x.name)}：加工 ${x.runs}回 → ${x.produced}個完成</b><div class="meta">不足 ${x.short}個を補充 ／ 1回 ${x.yield}個完成<br>必要材料：${x.parts.map(p=>esc(p[0])+' ×'+p[1]).join('、')}</div><div class="mini">${esc(x.source)}</div></div>`).join(''):'<div class="panel mini">加工が必要な素材はありません。</div>';
+ html+='<div class="panel"><div class="title">📋 採集・入手する素材</div>';
+ html+=Object.entries(plan.raw).filter(([,v])=>v>0).sort((a,b)=>a[0].localeCompare(b[0],'ja')).map(([n,v])=>`<div class="row meta"><b>${esc(n)}</b><span class="count">${v}個</span></div>`).join('')||'<div class="meta">不足している原材料はありません。</div>';
+ html+='</div>';
+ if(plan.unknown.length)html+='<div class="panel"><b class="warn">⚠️ 数量未確認・加工未登録</b><div class="meta">'+[...new Set(plan.unknown)].map(esc).join('、')+'</div><p class="mini">これらは加工元まで計算できません。未確認の数量を推測で補っていません。</p></div>';
+ document.getElementById('craftDetail').innerHTML=html;
+}
+function buildCraftPlan(needs){
+ const remaining={};for(const [n,v] of Object.entries(saved.stock||{}))remaining[n]=Math.max(0,Number(v)||0);
+ const steps=[],raw={},unknown=[];
+ function consume(name,amount,chain=[]){
+  if(!(amount>0))return;
+  let owned=remaining[name]||0,used=Math.min(owned,amount);remaining[name]=owned-used;
+  let short=amount-used;if(!short)return;
+  if(chain.includes(name)){unknown.push(name+'（循環レシピ）');return;}
+  if(!processNames.includes(name)){raw[name]=(raw[name]||0)+short;return;}
+  let rec=processRecord(name),parts=rec.ingredients||((rec.material&&rec.need)?[[rec.material,rec.need]]:[]);
+  if(!rec.yield||!parts.length||parts.some(([n,q])=>!n||!(q>0))){unknown.push(name+'（加工数量未確認）');raw[name]=(raw[name]||0)+short;return;}
+  let runs=Math.ceil(short/rec.yield),produced=runs*rec.yield;
+  remaining[name]=(remaining[name]||0)+produced-short;
+  let usedParts=parts.map(([n,q])=>[n,runs*q]);
+  steps.push({name,runs,produced,short,yield:rec.yield,parts:usedParts,source:rec.verified?'ゲーム画面で確認済み':rec.source||'加工レシピ参考値・要確認'});
+  for(let [n,q] of usedParts)consume(n,q,[...chain,name]);
+ }
+ for(let [n,q] of needs)consume(n,q);
+ return {steps,raw,unknown};
+}
 function renderStock(){let q=document.getElementById('stockQuery').value.trim().toLowerCase();let names=[...new Set([...materials.map(r=>r[0]),...crafts.flatMap(r=>[r[5],r[7],r[9],r[11]]).filter(Boolean)])].filter(n=>n.toLowerCase().includes(q));document.getElementById('stockResults').innerHTML=names.slice(0,q?200:35).map(n=>`<div class="panel row"><b>${esc(n)}</b><input class="num" aria-label="${esc(n)}の所持数" type="number" min="0" value="${Number(saved.stock[n]||0)}" onchange="setStock(decodeURIComponent('${encodeURIComponent(n)}'),this.value)"></div>`).join('')||'<div class="empty">該当なし</div>'}
 function setStock(n,v){saved.stock[n]=Math.max(0,Number(v)||0);persist();renderSearch();renderCraft()}function goStock(n){switchPage('stockPage');document.getElementById('stockQuery').value=decodeURIComponent(n);renderStock()}function goCraft(i){switchPage('craftPage');document.getElementById('craftSelect').value=i;renderCraft()}
 function renderSkills(){let q=document.getElementById('skillQuery').value.trim().toLowerCase();let a=skills.filter(r=>r.join(' ').toLowerCase().includes(q)),b=places.filter(r=>r.join(' ').toLowerCase().includes(q));document.getElementById('skillsResults').innerHTML=a.map(r=>`<div class="panel"><div class="title">${esc(r[1])} <span class="tag">${esc(r[0])}</span></div><div class="meta">解放Lv：${val(r,2)}<br>効果：${val(r,4)}<br>確認状況：${val(r,8)}</div></div>`).join('')+b.filter(r=>r[0]||r[1]||r[3]).map(r=>`<div class="panel"><div class="title">${esc(r[2])}</div><div class="meta">地域：${val(r,0)}<br>採集地点：${val(r,1)}<br>採集方法：${val(r,3)}</div></div>`).join('')||'<div class="empty">採集場所は未登録です</div>'}
