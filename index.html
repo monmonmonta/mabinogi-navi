@@ -1,8 +1,20 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101d2b"><title>マビノギ 生産ナビ Ver.5</title><style>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101d2b"><title>マビノギ 生産ナビ Ver.6</title><style>
 :root{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',sans-serif;color:#eaf1f6;background:#0d1722}*{box-sizing:border-box}body{margin:0}header{padding:20px 16px;background:linear-gradient(130deg,#1b4351,#182333);position:sticky;top:0;z-index:3}h1{font-size:21px;margin:0 0 5px}small,.muted{color:#a9becb}main{padding:14px 14px 105px;max-width:740px;margin:auto}.panel{background:#172735;border:1px solid #345062;border-radius:14px;padding:14px;margin:12px 0}.title{font-weight:700;font-size:16px;margin-bottom:8px}.meta{font-size:13px;color:#b8c8d3;line-height:1.8}.mini{font-size:12px;color:#a9bdc9;line-height:1.6}.warn{color:#ffd18a}.good{color:#7fe0d1}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.search,.edit,select,input[type=number]{background:#102333;color:#fff;border:1px solid #536c7d;border-radius:10px;padding:11px;font-size:16px}.search,.edit,select{width:100%}input[type=number]{width:94px}.btn{background:#21858b;color:white;border:0;border-radius:10px;padding:11px 14px;font-weight:700}.btn2{background:#30495b;color:white;border:0;border-radius:9px;padding:9px 12px}button{cursor:pointer}nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-around;background:#142534;border-top:1px solid #395368;padding:8px 2px max(12px,env(safe-area-inset-bottom));z-index:5}nav button{border:0;background:transparent;color:#b1c3cf;font-size:12px;padding:8px 2px}nav button.active{color:#79e0d4;font-weight:700}main section[hidden]{display:none}h2{font-size:17px;margin:16px 0 8px}.tag{font-size:11px;color:#b8ece6;background:#244a58;border-radius:6px;padding:3px 7px}.line{border-top:1px solid #345062;padding:8px 0}.space{margin-top:12px}.count{color:#81d8cf;font-weight:bold}
 .mini-toolbar{display:grid;grid-template-columns:1fr 88px;gap:8px}.mini-toolbar select{min-width:0}.mini-result .line{padding:10px 0}.mini-result .row{align-items:flex-start}.mini-result .count{white-space:nowrap}.mini-stock{width:78px!important;padding:7px!important;text-align:right}.mini-product{display:flex;align-items:center;gap:8px;margin:8px 0}.mini-product b{flex:1}.mini-product input{width:74px}.mini-product button{padding:8px}.mini-summary{font-size:14px}.mini-section-title{font-size:14px;color:#a9becb;margin:14px 0 5px}.mini-fixed{position:sticky;top:0;background:#0d1722;padding:5px 0;z-index:2}#mini .panel{margin:8px 0;padding:12px}#mini h2{margin:8px 0}nav button{flex:1;font-size:11px}body.mini-mode header{padding:10px 14px}body.mini-mode header h1{font-size:17px}body.mini-mode header>small{display:none}
-</style></head><body><header><h1>⚒️ マビノギ 生産ナビ <small>Ver.5</small></h1><small>ミニナビ・素材検索・製作・加工・在庫・メモ</small></header><main>
-<section id="mini" hidden><h2>📱 ミニナビ</h2><p class="mini">製作品を追加すると必要素材を合算します。在庫を変えると不足数も再計算されます。</p><div class="panel"><div class="mini-toolbar"><select id="miniCraft" aria-label="追加する製作品"></select><input type="number" id="miniAddQty" min="1" value="1" aria-label="追加個数"></div><button class="btn space" id="miniAdd">＋ 製作品を追加</button><div id="miniProducts"></div></div><div class="panel mini-result" id="miniResults" aria-live="polite"></div><p class="mini">※加工レシピの参考値はゲーム内未確認です。iPhoneではゲーム上への重ね表示はできません。</p></section>
+
+/* Ver.6: compact mobile planner */
+#mini .panel{padding:10px;margin:7px 0}#mini .mini-result .line{padding:7px 0}
+#mini h2{margin:5px 0;font-size:16px}#mini .mini-toolbar{grid-template-columns:minmax(0,1fr) 76px}
+#mini .mini-section-title{margin:10px 0 4px}#mini .mini-product{margin:5px 0}
+#mini .mini-product input{width:65px}#mini .mini-stock{width:68px!important}
+#mini details{border-top:1px solid #345062;padding:9px 0}#mini summary{cursor:pointer;font-weight:700;color:#b8d7e1}
+#mini .mini-raw{display:flex;align-items:center;gap:10px;padding:10px 2px;border-top:1px solid #345062}
+#mini .mini-raw input{width:22px;height:22px;accent-color:#70d9c8;flex-shrink:0}
+#mini .mini-raw b{flex:1}#mini .mini-raw.done b{text-decoration:line-through;color:#91a8b6}
+#mini .mini-raw.done .count{opacity:.65}#mini .mini-progress{font-size:13px;color:#a9becb}
+#mini .mini-result .count{font-size:14px}#mini .mini-result .row{gap:5px}
+</style></head><body><header><h1>⚒️ マビノギ 生産ナビ <small>Ver.6</small></h1><small>ミニナビ・素材検索・製作・加工・在庫・メモ</small></header><main>
+<section id="mini" hidden><h2>📱 ミニナビ</h2><p class="mini">複数の製作品を合算。採集した素材にチェックを付けられます。詳しい内訳はタップで開けます。</p><div class="panel"><div class="mini-toolbar"><select id="miniCraft" aria-label="追加する製作品"></select><input type="number" id="miniAddQty" min="1" value="1" aria-label="追加個数"></div><button class="btn space" id="miniAdd">＋ 製作品を追加</button><div id="miniProducts"></div></div><div class="panel mini-result" id="miniResults" aria-live="polite"></div><p class="mini">※加工レシピの参考値はゲーム内未確認です。iPhoneではゲーム上への重ね表示はできません。</p></section>
 <section id="search" hidden><input id="q" class="search" placeholder="🔎 素材・製作品を検索"><div id="results"></div></section>
 <section id="craft" hidden><h2>🛠️ 製作ナビ</h2><div class="panel"><div class="title">➕ 新しい製作レシピを追加</div><p class="mini">武器・防具・料理などを登録できます。未確認の数量は空欄のままでOK。登録内容はこの端末に保存されます。</p><label>分類</label><select id="newCategory"><option>武器</option><option>防具</option><option>料理</option><option>道具</option><option>ポーション</option><option>その他</option></select><label>製作品名</label><input class="edit space" id="newCraftName" placeholder="例：新しい弓"><label>スキル名</label><input class="edit space" id="newSkill" placeholder="例：木工"><label>必要スキルLv（未確認なら空欄）</label><input class="edit space" type="number" id="newLevel" min="1" placeholder="未確認"><label>必要素材（1行に 素材名,個数）</label><textarea class="edit space" id="newParts" rows="4" placeholder="木材,3&#10;革,1"></textarea><label>備考</label><input class="edit space" id="newNote" placeholder="例：装備Lv未確認"><div class="space"><button class="btn" id="addCraft">製作レシピを追加</button></div><div id="customCraftList"></div></div><select id="craftName"></select><div class="panel"><div class="row"><label>作りたい個数</label><input type="number" min="1" id="craftQty" value="1"></div><div id="craftResult"></div></div></section>
 <section id="process" hidden><h2>🔩 加工計算</h2><select id="processName"></select><div class="panel"><div class="row"><label>作りたい個数</label><input type="number" min="1" id="processQty" value="10"></div><div id="processResult"></div></div><div class="panel"><div class="title">✏️ 加工レシピ編集</div><p class="mini">複数素材にも対応。1行に「素材名,必要数」を入力します。数字が不明なら空欄のまま保存できます。</p><label class="mini">材料（1行に1種類）</label><textarea id="ingredients" rows="5" class="edit" placeholder="生皮,10&#10;タンニンパウダー,4"></textarea><div class="row space"><label>1回の完成数</label><input type="number" min="1" id="yieldQty" placeholder="未確認"></div><div class="space"><button class="btn" id="saveRecipe">この加工レシピを保存</button></div><p class="mini">編集内容はこの端末に保存されます。公式確認済みの値を変更した場合は「ユーザー編集」と表示します。</p></div></section>
@@ -25,7 +37,7 @@ const R={
 };
 const extras=['キャベツ','ジャガイモ','タマネギ','チーズ','トウモロコシ','ニンニク','ハーブ','マヨネーズ','リンゴ','丸太','卵','塩','小麦粉','水が入った瓶','牛乳','生皮','砂糖','羊毛','肉','鉄鉱石','クモの糸','樹液','上級丸太','石炭','銅鉱','サラダ油','小麦','タンニンパウダー','上級生皮','上級羊毛','元気キノコのエキス'];
 let names=[...new Set([...extras,...Object.keys(R),...C.flatMap(r=>{let a=[];for(let i=4;i<r.length-1;i+=2)if(typeof r[i]==='string')a.push(r[i]);return a})])].sort((a,b)=>a.localeCompare(b,'ja'));
-let saved={stock:{},memo:{},process:{},crafts:[],mini:[]};try{const x=JSON.parse(localStorage.getItem('mabiDataV2')||localStorage.getItem('mabiDataV1')||'{}');if(x&&typeof x==='object')saved={stock:x.stock||{},memo:x.memo||{},process:x.process||{},crafts:Array.isArray(x.crafts)?x.crafts:[],mini:Array.isArray(x.mini)?x.mini:[]}}catch(e){}
+let saved={stock:{},memo:{},process:{},crafts:[],mini:[],miniChecks:{}};try{const x=JSON.parse(localStorage.getItem('mabiDataV2')||localStorage.getItem('mabiDataV1')||'{}');if(x&&typeof x==='object')saved={stock:x.stock||{},memo:x.memo||{},process:x.process||{},crafts:Array.isArray(x.crafts)?x.crafts:[],mini:Array.isArray(x.mini)?x.mini:[],miniChecks:x.miniChecks&&typeof x.miniChecks==='object'?x.miniChecks:{}}}catch(e){}
 const baseCraftCount=C.length;C.push(...saved.crafts.filter(r=>Array.isArray(r)&&r.length>=5));
 const $=id=>document.getElementById(id),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const store=()=>localStorage.setItem('mabiDataV2',JSON.stringify(saved));const qty=id=>Math.max(1,Math.ceil(Number($(id).value)||1));const record=n=>saved.process[n]||R[n];
 function refreshCraftLists(){names=[...new Set([...extras,...Object.keys(R),...C.flatMap(r=>partsOf(r).map(p=>p[0])),...Object.values(saved.process).flatMap(r=>(r.parts||[]).map(p=>p[0]))])].sort((a,b)=>a.localeCompare(b,'ja'));$('miniCraft').innerHTML=C.map((r,i)=>`<option value="${i}">${esc(r[0])}｜${esc(r[1])}</option>`).join('');$('craftName').innerHTML=C.map((r,i)=>`<option value="${i}">${esc(r[0])}｜${esc(r[1])}</option>`).join('');$('memoName').innerHTML=[...new Set([...names,...C.map(r=>r[1])])].sort((a,b)=>a.localeCompare(b,'ja')).map(n=>`<option>${esc(n)}</option>`).join('');$('customCraftList').innerHTML=saved.crafts.map((r,i)=>`<div class="line row"><span>${esc(r[1])}</span><span><button class="btn2" onclick="editCraft(${i})">編集</button> <button class="btn2" onclick="deleteCraft(${i})">削除</button></span></div>`).join('');stock();search();craft();renderMini()}
@@ -45,22 +57,56 @@ function stock(){let q=$('stockQ').value.trim().toLowerCase();$('stockResults').
 function setStock(n,v){saved.stock[n]=Math.max(0,Math.floor(Number(v)||0));store();craft();renderProcess();search();renderMini()}
 function loadMemo(){$('memo').value=saved.memo[$('memoName').value]||''}
 function exportData(){let a=document.createElement('a'),url=URL.createObjectURL(new Blob([JSON.stringify(saved,null,2)],{type:'application/json'}));a.href=url;a.download='マビノギ生産ナビ_バックアップ.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),3000)}
-function importData(e){let f=e.target.files?.[0];if(!f)return;f.text().then(t=>{try{let x=JSON.parse(t);if(!x||typeof x.stock!=='object'||typeof x.memo!=='object'||Array.isArray(x.stock)||Array.isArray(x.memo))throw Error();saved={stock:x.stock||{},memo:x.memo||{},process:x.process||{},crafts:Array.isArray(x.crafts)?x.crafts:[],mini:Array.isArray(x.mini)?x.mini:[]};C=C.slice(0,baseCraftCount).concat(saved.crafts.filter(r=>Array.isArray(r)&&r.length>=5));store();refreshCraftLists();loadEdit();loadMemo();tab('mini');renderMini();alert('復元しました')}catch(err){alert('バックアップファイルを確認してください')}})}
+function importData(e){let f=e.target.files?.[0];if(!f)return;f.text().then(t=>{try{let x=JSON.parse(t);if(!x||typeof x.stock!=='object'||typeof x.memo!=='object'||Array.isArray(x.stock)||Array.isArray(x.memo))throw Error();saved={stock:x.stock||{},memo:x.memo||{},process:x.process||{},crafts:Array.isArray(x.crafts)?x.crafts:[],mini:Array.isArray(x.mini)?x.mini:[],miniChecks:x.miniChecks&&typeof x.miniChecks==='object'?x.miniChecks:{}};C=C.slice(0,baseCraftCount).concat(saved.crafts.filter(r=>Array.isArray(r)&&r.length>=5));store();refreshCraftLists();loadEdit();loadMemo();tab('mini');renderMini();alert('復元しました')}catch(err){alert('バックアップファイルを確認してください')}})}
 $('processName').innerHTML=Object.keys(R).sort((a,b)=>a.localeCompare(b,'ja')).map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');
 
-// Ver.5 compact planner; keep all user data in the existing mabiDataV2 key.
+// Ver.6 compact planner; keep all user data in the existing mabiDataV2 key.
 function miniItems(){return Array.isArray(saved.mini)?saved.mini:[]}
 function miniAdd(){const i=Number($('miniCraft').value),n=qty('miniAddQty'),r=C[i];if(!r)return;const list=miniItems();const existing=list.find(x=>x.name===r[1]);if(existing)existing.qty+=n;else list.push({name:r[1],qty:n});saved.mini=list;store();renderMini()}
 function miniSetQty(i,value){const list=miniItems();if(!list[i])return;list[i].qty=Math.max(1,Math.floor(Number(value)||1));store();renderMini()}
 function miniRemove(i){const list=miniItems();list.splice(i,1);store();renderMini()}
 function miniSetStock(name,value){saved.stock[name]=Math.max(0,Math.floor(Number(value)||0));store();renderMini();craft();renderProcess();search();}
-function renderMini(){if(!$('miniProducts'))return;const list=miniItems(),totals=new Map(),unknown=[];
-$('miniProducts').innerHTML=list.length?list.map((x,i)=>`<div class="mini-product"><b>${esc(x.name)}</b><input type="number" min="1" value="${Math.max(1,Math.floor(Number(x.qty)||1))}" aria-label="${esc(x.name)}の製作個数" onchange="miniSetQty(${i},this.value)"><button class="btn2" aria-label="${esc(x.name)}を削除" onclick="miniRemove(${i})">✕</button></div>`).join(''):'<p class="mini">まだ製作品がありません。上から追加してね。</p>';
-for(const x of list){const r=C.find(y=>y[1]===x.name);if(!r){unknown.push(x.name+'：レシピが見つかりません');continue}const amount=Math.max(1,Math.floor(Number(x.qty)||1));const parts=partsOf(r);if(!parts.length)unknown.push(x.name+'：必要素材未登録');for(const [name,count] of parts){if(count===null){unknown.push(x.name+'：'+name+'の必要数未確認');continue}totals.set(name,(totals.get(name)||0)+count*amount)}}
-const needs=[...totals.entries()],p=plan(needs);const rows=needs.map(([name,n])=>{const have=Math.max(0,Number(saved.stock[name])||0);return `<div class="line"><div class="row"><b>${esc(name)}</b><span class="count">必要 ${n} ／ 不足 ${Math.max(0,n-have)}</span></div><div class="row mini-summary"><span class="muted">在庫（変更可）</span><input class="mini-stock" type="number" min="0" value="${have}" aria-label="${esc(name)}の在庫" onchange="miniSetStock(decodeURIComponent('${encodeURIComponent(name)}'),this.value)"></div></div>`}).join('');
-const raw=Object.entries(p.raw).sort((a,b)=>a[0].localeCompare(b[0],'ja')).map(([name,n])=>`<div class="line row"><b>${esc(name)}</b><span class="count">${n}個</span></div>`).join('');
-const steps=p.steps.map(x=>`<div class="line row"><span>${esc(x.n)}</span><span class="count">${x.runs}回 → ${x.produced}個</span></div>`).join('');
-$('miniResults').innerHTML=`<div class="title">📋 合算結果（${list.length}種類）</div><div class="mini-section-title">必要素材・在庫・不足数</div>${rows||'<p class="mini">製作品を追加するとここに表示されます。</p>'}<div class="mini-section-title">🌿 採集・入手する素材（在庫反映）</div>${raw||'<p class="mini">計算できる不足原材料はありません。</p>'}<div class="mini-section-title">🔩 加工回数</div>${steps||'<p class="mini">加工不要、または計算できる加工工程はありません。</p>'}${[...new Set([...unknown,...p.unknown])].length?`<p class="warn">⚠️ 未確認：${[...new Set([...unknown,...p.unknown])].map(esc).join('、')}</p>`:''}`;
+function miniCheck(name,count,checked){
+  if(!saved.miniChecks||typeof saved.miniChecks!=='object')saved.miniChecks={};
+  const key=name+'|'+count;
+  if(checked)saved.miniChecks[key]=true;else delete saved.miniChecks[key];
+  store();renderMini();
+}
+function renderMini(){
+ if(!$('miniProducts'))return;
+ const list=miniItems(),totals=new Map(),unknown=[];
+ $('miniProducts').innerHTML=list.length?list.map((x,i)=>`<div class="mini-product"><b>${esc(x.name)}</b><input type="number" min="1" value="${Math.max(1,Math.floor(Number(x.qty)||1))}" aria-label="${esc(x.name)}の製作個数" onchange="miniSetQty(${i},this.value)"><button class="btn2" aria-label="${esc(x.name)}を削除" onclick="miniRemove(${i})">✕</button></div>`).join(''):'<p class="mini">まだ製作品がありません。上から追加してね。</p>';
+ for(const x of list){
+  const r=C.find(y=>y[1]===x.name);
+  if(!r){unknown.push(x.name+'：レシピが見つかりません');continue}
+  const amount=Math.max(1,Math.floor(Number(x.qty)||1)),parts=partsOf(r);
+  if(!parts.length)unknown.push(x.name+'：必要素材未登録');
+  for(const [name,count] of parts){
+   if(count===null){unknown.push(x.name+'：'+name+'の必要数未確認');continue}
+   totals.set(name,(totals.get(name)||0)+count*amount);
+  }
+ }
+ const needs=[...totals.entries()],p=plan(needs);
+ const rawEntries=Object.entries(p.raw).sort((a,b)=>a[0].localeCompare(b[0],'ja'));
+ const checks=saved.miniChecks||{};
+ const doneCount=rawEntries.filter(([n,c])=>checks[n+'|'+c]).length;
+ const raw=rawEntries.map(([name,n])=>{
+  const key=name+'|'+n,checked=!!checks[key];
+  return `<label class="mini-raw${checked?' done':''}"><input type="checkbox" ${checked?'checked':''} onchange="miniCheck(decodeURIComponent('${encodeURIComponent(name)}'),${n},this.checked)"><b>${esc(name)}</b><span class="count">${n}個</span></label>`;
+ }).join('');
+ const rows=needs.map(([name,n])=>{
+  const have=Math.max(0,Number(saved.stock[name])||0);
+  return `<div class="line"><div class="row"><b>${esc(name)}</b><span class="count">必要 ${n} ／ 不足 ${Math.max(0,n-have)}</span></div><div class="row mini-summary"><span class="muted">在庫（変更可）</span><input class="mini-stock" type="number" min="0" value="${have}" aria-label="${esc(name)}の在庫" onchange="miniSetStock(decodeURIComponent('${encodeURIComponent(name)}'),this.value)"></div></div>`;
+ }).join('');
+ const steps=p.steps.map(x=>`<div class="line row"><span>${esc(x.n)}</span><span class="count">${x.runs}回 → ${x.produced}個</span></div>`).join('');
+ const warnings=[...new Set([...unknown,...p.unknown])];
+ $('miniResults').innerHTML=`<div class="title">📋 合算結果（${list.length}種類）</div>
+ <div class="mini-section-title">🌿 採集チェックリスト</div>
+ <div class="mini-progress">${doneCount} / ${rawEntries.length} 種類 完了（チェックはこの端末に保存）</div>
+ ${raw||'<p class="mini">計算できる不足原材料はありません。</p>'}
+ <details><summary>📦 必要素材・在庫・不足数を表示</summary>${rows||'<p class="mini">製作品を追加すると表示されます。</p>'}</details>
+ <details><summary>🔩 加工回数・手順を表示</summary>${steps||'<p class="mini">加工不要、または計算できる加工工程はありません。</p>'}</details>
+ ${warnings.length?`<p class="warn">⚠️ 未確認：${warnings.map(esc).join('、')}</p>`:''}`;
 }
 
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>tab(b.dataset.tab));$('q').oninput=search;$('craftName').onchange=craft;$('craftQty').oninput=craft;$('processName').onchange=loadEdit;$('processQty').oninput=renderProcess;$('saveRecipe').onclick=saveRecipe;$('stockQ').oninput=stock;$('memoName').onchange=loadMemo;$('saveMemo').onclick=()=>{saved.memo[$('memoName').value]=$('memo').value;store();alert('保存しました')};$('addCraft').onclick=addCraft;$('miniAdd').onclick=miniAdd;$('backup').onclick=exportData;$('restore').onchange=importData;refreshCraftLists();loadEdit();loadMemo();tab('mini');
