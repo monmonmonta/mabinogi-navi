@@ -1,4 +1,4 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101d2b"><title>マビノギ 生産ナビ Ver.8.9</title><style>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101d2b"><title>マビノギ 生産ナビ Ver.8.9.43</title><style>
 :root{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',sans-serif;color:#eaf1f6;background:#0d1722}*{box-sizing:border-box}body{margin:0}header{padding:20px 16px;background:linear-gradient(130deg,#1b4351,#182333);position:sticky;top:0;z-index:3}h1{font-size:21px;margin:0 0 5px}small,.muted{color:#a9becb}main{padding:14px 14px 105px;max-width:740px;margin:auto}.panel{background:#172735;border:1px solid #345062;border-radius:14px;padding:14px;margin:12px 0}.title{font-weight:700;font-size:16px;margin-bottom:8px}.meta{font-size:13px;color:#b8c8d3;line-height:1.8}.mini{font-size:12px;color:#a9bdc9;line-height:1.6}.warn{color:#ffd18a}.good{color:#7fe0d1}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.search,.edit,select,input[type=number]{background:#102333;color:#fff;border:1px solid #536c7d;border-radius:10px;padding:11px;font-size:16px}.search,.edit,select{width:100%}input[type=number]{width:94px}.btn{background:#21858b;color:white;border:0;border-radius:10px;padding:11px 14px;font-weight:700}.btn2{background:#30495b;color:white;border:0;border-radius:9px;padding:9px 12px}button{cursor:pointer}nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-around;background:#142534;border-top:1px solid #395368;padding:8px 2px max(12px,env(safe-area-inset-bottom));z-index:5}nav button{border:0;background:transparent;color:#b1c3cf;font-size:12px;padding:8px 2px}nav button.active{color:#79e0d4;font-weight:700}main section[hidden]{display:none}h2{font-size:17px;margin:16px 0 8px}.tag{font-size:11px;color:#b8ece6;background:#244a58;border-radius:6px;padding:3px 7px}.line{border-top:1px solid #345062;padding:8px 0}.space{margin-top:12px}.count{color:#81d8cf;font-weight:bold}
 .mini-toolbar{display:grid;grid-template-columns:1fr 88px;gap:8px}.mini-toolbar select{min-width:0}.mini-result .line{padding:10px 0}.mini-result .row{align-items:flex-start}.mini-result .count{white-space:nowrap}.mini-stock{width:78px!important;padding:7px!important;text-align:right}.mini-product{display:flex;align-items:center;gap:8px;margin:8px 0}.mini-product b{flex:1}.mini-product input{width:74px}.mini-product button{padding:8px}.mini-summary{font-size:14px}.mini-section-title{font-size:14px;color:#a9becb;margin:14px 0 5px}.mini-fixed{position:sticky;top:0;background:#0d1722;padding:5px 0;z-index:2}#mini .panel{margin:8px 0;padding:12px}#mini h2{margin:8px 0}nav button{flex:1;font-size:11px}body.mini-mode header{padding:10px 14px}body.mini-mode header h1{font-size:17px}body.mini-mode header>small{display:none}
 
@@ -14,7 +14,7 @@
 #mini .mini-raw.done .count{opacity:.65}#mini .mini-progress{font-size:13px;color:#a9becb}
 #mini .mini-result .count{font-size:14px}#mini .mini-result .row{gap:5px}
 
-/* Ver.8.9: fast landscape checklist, no external libraries */
+/* Ver.8.9.43: fast landscape checklist, no external libraries */
 #focusToggle{margin:6px 0 10px;width:100%;font-size:15px}
 body.focus-mode #mini>h2,body.focus-mode #mini>p{display:none} body.focus-mode #miniSetup:not(.expanded){display:none}
 body.focus-mode #miniResults{margin-top:0}
@@ -41,7 +41,7 @@ body.focus-mode nav button{padding:4px 0}
  body.focus-mode #miniResults details{padding:5px 0}
 }
 
-/* Ver.8.9 landscape-first compact checklist */
+/* Ver.8.9.43 landscape-first compact checklist */
 body.focus-mode #miniResults{margin:3px 0;padding:7px 10px}
 body.focus-mode #miniResults .title,body.focus-mode #miniResults .mini-section-title{display:none}
 body.focus-mode #miniResults details{display:none}
@@ -64,7 +64,7 @@ body.focus-mode #miniResults .focus-hint{font-size:11px;color:#a9becb;margin:3px
 }
 @media(max-width:360px){body.focus-mode #miniResults .focus-grid{grid-template-columns:1fr}}
 
-/* Ver.8.9: compact controls and visible editing in focus mode */
+/* Ver.8.9.43: compact controls and visible editing in focus mode */
 #mini .quickbar{display:flex;gap:6px;margin:4px 0}
 #mini .quickbar button{flex:1;min-width:0;padding:7px 5px;font-size:12px}
 #miniSetup{display:none}
@@ -83,7 +83,7 @@ body.focus-mode #miniResults .mini-raw{cursor:pointer}
 
 /* Ver 8.5 quick material memo */
 #quickMemoPanel{padding:9px;margin:7px 0}#quickMemoPanel .qm-head{display:flex;justify-content:space-between;align-items:center;gap:8px}#quickMemoPanel .qm-head button{font-size:12px;padding:6px 9px}#quickMemoBody[hidden]{display:none}#quickMemoPanel .qm-add{display:grid;grid-template-columns:minmax(0,1fr) 78px 52px;gap:5px;margin:8px 0}#quickMemoPanel .qm-add input{width:100%;min-width:0;padding:8px;font-size:16px}#quickMemoPanel .qm-add button{padding:6px}#quickMemoRows .qm-row{display:grid;grid-template-columns:minmax(0,1fr) 80px 35px;gap:6px;align-items:center;border-top:1px solid #345062;padding:5px 0}#quickMemoRows .qm-row input{width:100%;padding:6px;font-size:16px}#quickMemoRows .qm-row button{padding:6px 2px}#quickMemoRows .qm-row b{overflow-wrap:anywhere;font-size:14px}body.focus-mode #quickMemoPanel{display:block;margin:5px 0}body.focus-mode #quickMemoPanel .title{display:block}body.focus-mode #quickMemoPanel .qm-row{padding:3px 0}
-/* Ver.8.9 quick memo and unified search */
+/* Ver.8.9.43 quick memo and unified search */
 #quickMemoRows .qm-row{grid-template-columns:minmax(0,1fr) 32px 76px 32px 32px;gap:4px}
 #quickMemoRows .qm-row .btn2{min-height:34px;padding:5px 0;font-size:17px}
 #quickMemoRows .qm-row .qm-delete{font-size:14px}
@@ -94,7 +94,7 @@ body.focus-mode #miniResults .mini-raw{cursor:pointer}
 #miniSearchResults .ms-row button{margin-top:4px}
 @media(orientation:landscape){#quickMemoRows .qm-row{grid-template-columns:minmax(0,1fr) 34px 74px 34px 34px}}
 
-/* Ver.8.9: responsive memo controls, keep quantity fully visible */
+/* Ver.8.9.43: responsive memo controls, keep quantity fully visible */
 #quickMemoRows .qm-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(76px,90px) 42px 42px 38px;gap:6px;align-items:center}
 #quickMemoRows .qm-row input[type=number]{box-sizing:border-box;width:100%;min-width:0;max-width:none;padding:7px 3px;text-align:center;font-size:16px;font-variant-numeric:tabular-nums;appearance:textfield;-moz-appearance:textfield}
 #quickMemoRows .qm-row input[type=number]::-webkit-inner-spin-button,#quickMemoRows .qm-row input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
@@ -105,7 +105,7 @@ body.focus-mode #miniResults .mini-raw{cursor:pointer}
 #quickMemoRows .qm-row button, #quickMemoPanel button {touch-action:manipulation; -webkit-tap-highlight-color:transparent; user-select:none; -webkit-user-select:none;}
 #quickMemoRows .qm-row button {min-height:44px;}
 
-/* Ver.8.9: tighter mobile layout, accessible quick memo controls */
+/* Ver.8.9.43: tighter mobile layout, accessible quick memo controls */
 #mini .quickbar{display:flex;gap:6px}#mini .quickbar button{flex:1;min-width:0;padding:8px 5px;font-size:12px}
 #mini .panel{border-radius:10px}#quickMemoPanel .qm-head{min-height:30px}
 #quickMemoRows .qm-row{grid-template-columns:minmax(58px,1fr) 76px 36px 36px 32px;gap:4px}
@@ -117,7 +117,7 @@ body.focus-mode #miniResults .mini-raw{cursor:pointer}
 @media(orientation:landscape) and (max-height:540px){#mini .quickbar button{padding:5px 4px}#quickMemoPanel{padding:6px!important}#quickMemoRows .qm-row{padding:2px 0}#miniSearchPanel{padding:5px!important}}
 @media(max-width:360px){#quickMemoRows .qm-row{grid-template-columns:minmax(48px,1fr) 67px 32px 32px 29px;gap:3px}}
 
-/* Ver.8.9: direct per-material step controls and tighter landscape layout */
+/* Ver.8.9.43: direct per-material step controls and tighter landscape layout */
 #quickMemoRows .qm-row{grid-template-columns:minmax(58px,1fr) minmax(68px,82px) 34px 30px 30px 34px 28px;gap:3px;padding:3px 0}
 #quickMemoRows .qm-row button{min-height:40px;font-size:13px;font-weight:700;padding:4px 0;touch-action:manipulation}
 #quickMemoRows .qm-row .qm-delete{font-size:14px}
@@ -128,13 +128,137 @@ body.focus-mode #miniResults .mini-raw{cursor:pointer}
 #mini .mini{margin:3px 0}
 @media(orientation:landscape) and (max-height:540px){header{padding:3px 8px}nav{padding:2px 4px}#mini .quickbar{margin:2px 0}#mini h2{margin:3px 0}#mini .panel{padding:5px;margin:3px 0}#quickMemoRows .qm-row{padding:1px 0}#quickMemoRows .qm-row button{min-height:36px}}
 @media(max-width:390px){#quickMemoRows .qm-row{grid-template-columns:minmax(48px,1fr) 64px 30px 27px 27px 30px 26px;gap:2px}#quickMemoRows .qm-row button{font-size:12px}}
-</style></head><body><header><h1>⚒️ マビノギ 生産ナビ <small>Ver.8.9</small></h1><small>ミニナビ・生産スキル参考情報・レシピ登録・在庫</small></header><main>
+
+/* Ver.8.9.43: iPhone landscape compact centered layout */
+html{width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{width:100%;min-width:0;overflow-x:hidden}
+main,header,nav{box-sizing:border-box}
+main section,.panel{min-width:0;max-width:100%}
+.panel, .row, .mini-toolbar, .mini-product{min-width:0}
+input,select,textarea{max-width:100%}
+@media (orientation:landscape){
+  :root{--landscape-content-width:560px}
+  body{font-size:14px}
+  main,body.focus-mode main{width:100%;max-width:calc(var(--landscape-content-width) + 24px);margin-left:auto;margin-right:auto;padding-left:12px;padding-right:12px}
+  header{width:100%;padding-left:max(14px,calc((100% - var(--landscape-content-width))/2));padding-right:max(14px,calc((100% - var(--landscape-content-width))/2))}
+  nav{left:50%;right:auto;transform:translateX(-50%);width:min(100%,calc(var(--landscape-content-width) + 24px));border-left:1px solid #395368;border-right:1px solid #395368}
+  .panel{padding:9px;margin:6px 0}
+  #mini .panel{padding:7px;margin:4px 0}
+  #miniResults .focus-grid,body.focus-mode #miniResults .focus-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #mini .mini-raw b{min-width:0;overflow-wrap:anywhere}
+  #quickMemoRows .qm-row{grid-template-columns:minmax(52px,1fr) 66px 30px 27px 27px 30px 26px;gap:3px}
+  #quickMemoRows .qm-row button{font-size:12px;min-width:0}
+  #mini .quickbar button{font-size:12px}
+  #craft,#process,#stock,#search,#skills,#notes{overflow-wrap:anywhere}
+}
+@media (orientation:landscape) and (max-height:440px){
+  main{padding-top:5px;padding-bottom:58px}
+  body.focus-mode main{padding-bottom:10px}
+  .panel{padding:7px}
+  h2{margin:6px 0}
+  #mini .quickbar{margin:2px 0}
+  #mini .quickbar button{padding:5px 3px}
+}
+@media (orientation:landscape) and (max-width:620px){
+  main,body.focus-mode main{max-width:100%}
+}
+
+/* Ver.8.9.43: draggable floating quick memo */
+#quickMemoPanel.floating-memo{position:fixed!important;z-index:30!important;top:64px;right:12px;left:auto;bottom:auto;width:min(360px,calc(100vw - 24px));max-height:min(72dvh,520px);overflow:hidden;display:flex!important;flex-direction:column;margin:0!important;padding:9px!important;border:1px solid #70bcb8;box-shadow:0 10px 32px #000a;background:#172735;touch-action:pan-y}
+#quickMemoPanel.floating-memo .qm-head{cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;flex-shrink:0}
+#quickMemoPanel.floating-memo .qm-head:active{cursor:grabbing}
+#quickMemoPanel.floating-memo #quickMemoBody{overflow-y:auto;overscroll-behavior:contain;min-height:0;flex:1}
+#quickMemoPanel.floating-memo .qm-head b{font-size:13px;min-width:0}
+#quickMemoPanel.floating-memo .qm-head button{padding:6px 8px}
+#quickMemoPanel.floating-memo .float-close{background:#30495b;color:#fff;border:0;border-radius:7px}
+#quickMemoPanel.floating-memo .qm-row{grid-template-columns:minmax(40px,1fr) 54px repeat(5,27px)!important;gap:2px!important}
+#quickMemoPanel.floating-memo .qm-row button{min-height:34px!important;font-size:11px!important}
+#quickMemoPanel.floating-memo .qm-row input[type=number]{width:100%;font-size:16px}
+#floatMemoLaunch{position:fixed;right:12px;bottom:calc(66px + env(safe-area-inset-bottom));z-index:29;background:#21858b;color:white;border:1px solid #8ee0d7;border-radius:24px;padding:10px 13px;box-shadow:0 5px 16px #0009;font-weight:700;touch-action:manipulation}
+body.focus-mode #floatMemoLaunch{bottom:12px}
+#quickMemoPanel.floating-memo.float-hidden{display:none!important}
+@media(orientation:landscape){#quickMemoPanel.floating-memo{max-height:calc(100dvh - 16px)}#floatMemoLaunch{bottom:8px}}
+
+/* Ver.8.9.43: one-tap compact memo and persistent position */
+#quickMemoPanel.floating-memo.float-compact{width:min(280px,calc(100vw - 18px));max-height:min(55dvh,340px);padding:6px!important}
+#quickMemoPanel.floating-memo.float-compact .qm-head b{font-size:12px}
+#quickMemoPanel.floating-memo.float-compact .qm-row{grid-template-columns:minmax(30px,1fr) 48px repeat(5,25px)!important;gap:2px!important}
+#quickMemoPanel.floating-memo.float-compact .qm-row button{min-height:32px!important}
+#quickMemoPanel.floating-memo .float-size{background:#21858b;color:#fff;border:0;border-radius:7px;font-size:12px;white-space:nowrap}
+#floatMemoLaunch[hidden]{display:none!important}
+@media(orientation:landscape) and (max-height:450px){#quickMemoPanel.floating-memo{max-height:calc(100dvh - 12px)}}
+
+/* Ver.8.9.43: floating memo search and position reset */
+#quickMemoPanel.floating-memo .float-filter{flex-shrink:0;display:flex;gap:5px;margin:6px 0 4px}
+#quickMemoPanel.floating-memo .float-filter input{min-width:0;width:100%;padding:7px 9px;font-size:16px;background:#102333;color:#fff;border:1px solid #536c7d;border-radius:8px}
+#quickMemoPanel.floating-memo .float-reset{background:#30495b;color:#fff;border:0;border-radius:7px;padding:6px;font-size:11px;white-space:nowrap}
+#quickMemoPanel.floating-memo .qm-row.float-filtered{display:none!important}
+/* Ver.8.9.43: hide zero-count entries in floating memo */
+#quickMemoPanel.floating-memo .float-filter{align-items:center}
+#quickMemoPanel.floating-memo .float-zero{flex-shrink:0;border:1px solid #536c7d;background:#30495b;color:white;border-radius:8px;padding:7px 8px;font-size:12px;white-space:nowrap}
+#quickMemoPanel.floating-memo .float-zero[aria-pressed="true"]{background:#21858b;border-color:#8ee0d7}
+/* Ver.8.9.43 sorting control in floating memo */
+#quickMemoPanel.floating-memo .float-filter{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+#quickMemoPanel.floating-memo .float-sort{width:auto;max-width:100%;min-width:120px;padding:6px;font-size:14px;flex:1 1 120px}
+
+/* Ver.8.9.43: one-tap export of currently visible memo rows */
+.floating-memo .float-copy{background:#236e75;color:#fff;border:0;border-radius:7px;padding:7px 10px;font-size:12px;cursor:pointer;touch-action:manipulation}
+
+/* Ver.8.9.43: quick material entry */
+#qmQuickPick{margin:7px 0;border-top:1px solid #345062;padding-top:7px}
+#qmQuickPick .qm-pick-head{display:flex;gap:6px;align-items:center;margin-bottom:5px}
+#qmQuickPick .qm-pick-head b{font-size:12px;flex:1}
+#qmQuickPick .qm-pick-head input{width:100%;min-width:0;padding:7px;font-size:16px}
+#qmQuickPick .qm-pick-list{display:flex;gap:5px;flex-wrap:wrap;max-height:105px;overflow:auto}
+#qmQuickPick .qm-pick-list button{padding:7px 9px;font-size:12px;border-radius:8px;background:#244a58;color:#eaf1f6;border:1px solid #456879;touch-action:manipulation}
+#qmQuickPick .qm-pick-list button:active{background:#21858b}
+#qmQuickPick .qm-pick-note{font-size:11px;color:#a9becb;margin:3px 0 5px}
+
+/* Ver.8.9.43 favorite quick picks */
+#qmQuickPick .qm-pick-item{display:inline-flex;align-items:stretch;gap:2px;max-width:100%;border-radius:8px;overflow:hidden}
+#qmQuickPick .qm-pick-item button{border-radius:0}
+#qmQuickPick .qm-pick-star{color:#ffd18a;background:#30495b;min-width:32px;font-size:19px;padding:4px 5px}
+#qmQuickPick .qm-pick-item button:last-child{min-width:0;overflow-wrap:anywhere}
+
+/* Ver.8.9.43: checklist inside the floating memo */
+#dailyTodo{border:1px solid #456879;border-radius:9px;margin:5px 0 8px;padding:7px;background:#102333}
+#dailyTodo summary{font-weight:700;cursor:pointer;color:#a7efe0;touch-action:manipulation}
+#dailyTodo .todo-add{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0}
+#dailyTodo input[type=text]{flex:1 1 130px;min-width:0;background:#0d1722;color:#fff;border:1px solid #536c7d;border-radius:7px;padding:7px;font-size:16px}
+#dailyTodo select{width:auto;max-width:100%;padding:6px;font-size:13px}
+#dailyTodo button{background:#30495b;color:#fff;border:0;border-radius:7px;padding:7px 9px;font-size:12px;touch-action:manipulation}
+#dailyTodo .todo-line{display:flex;gap:6px;align-items:center;padding:6px 2px;border-top:1px solid #345062}
+#dailyTodo .todo-line input{width:22px;height:22px;flex-shrink:0;accent-color:#70d9c8}
+#dailyTodo .todo-line label{flex:1;min-width:0;overflow-wrap:anywhere;font-size:13px}
+#dailyTodo .todo-line.done label{text-decoration:line-through;color:#91a8b6}
+#dailyTodo .todo-line small{font-size:10px}
+#dailyTodo .todo-line .todo-del{padding:4px 8px}
+#dailyTodo .todo-actions{display:flex;justify-content:space-between;align-items:center;gap:5px;flex-wrap:wrap;margin-top:6px}
+#dailyTodo .todo-progress{font-size:12px;color:#a9becb}
+#dailyTodo .todo-filters{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
+#dailyTodo .todo-filters button{padding:6px 8px;background:#263c4e;border:1px solid #456879;font-size:12px}
+#dailyTodo .todo-filters button[aria-pressed="true"]{background:#21858b;border-color:#70d9c8;color:#fff;font-weight:700}
+/* Ver.8.9.43: optional checklist templates */
+#dailyTodo .todo-presets{margin:6px 0;padding:7px;border:1px solid #345062;border-radius:8px}
+#dailyTodo .todo-presets summary{font-size:12px;color:#c5d9e2}
+#dailyTodo .todo-preset-buttons{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0}
+#dailyTodo .todo-preset-buttons button{background:#22565d;border:1px solid #39888a}
+#dailyTodo .todo-preset-status{font-size:11px;color:#a9becb}
+#dailyTodo .todo-sort{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:12px;color:#b8c8d3}
+#dailyTodo .todo-sort select{flex:1;min-width:0;max-width:210px}
+</style></head><body><header><h1>⚒️ マビノギ 生産ナビ <small>Ver.8.9.43</small></h1><small>ミニナビ・生産スキル参考情報・レシピ登録・在庫</small></header><main>
 <section id="mini" hidden><div class="quickbar"><button class="btn2" id="setupToggle" type="button" aria-expanded="false">＋ 製作品を編集</button><button class="btn2" id="clearChecks" type="button">✓ チェック解除</button></div><button class="btn2" id="focusToggle" type="button" aria-pressed="false">📋 採集チェックだけ表示</button><h2>📱 ミニナビ</h2><p class="mini">複数の製作品を合算。採集した素材にチェックを付けられます。詳しい内訳はタップで開けます。</p><div class="panel" id="miniSetup"><div class="mini-toolbar"><select id="miniCraft" aria-label="追加する製作品"></select><input type="number" id="miniAddQty" min="1" value="1" aria-label="追加個数"></div><button class="btn space" id="miniAdd">＋ 製作品を追加</button><div id="miniProducts"></div></div><div class="panel" id="quickMemoPanel"><div class="qm-head"><b>📝 素材の簡易メモ <span id="qmCount" class="mini"></span></b><button class="btn2" id="qmToggle" type="button" aria-expanded="false">開く</button></div><div id="quickMemoBody" hidden><div class="qm-add"><input id="qmName" class="edit" placeholder="素材名（自由入力）" aria-label="メモする素材名"><input id="qmQty" type="number" min="0" step="1" placeholder="個数" aria-label="メモする個数"><button id="qmAdd" class="btn" type="button">追加</button></div><div class="qm-tools"><button class="btn2" id="qmClearZero" type="button">0個のメモを削除</button></div><div id="quickMemoRows"></div><p class="mini">同じ素材名で追加すると個数を加算します。各素材の＋5・−5を直接押せます。個数欄を直接編集すると上書きできます。在庫・レシピには反映されません。</p></div></div><details class="panel" id="miniSearchPanel"><summary>🔎 素材・レシピ・スキルを検索</summary><input class="search" id="miniQuickSearch" placeholder="名前を入力して検索"><div id="miniSearchResults" class="mini"></div></details><div class="panel mini-result" id="miniResults" aria-live="polite"></div><p class="mini">※加工レシピの参考値はゲーム内未確認です。iPhoneではゲーム上への重ね表示はできません。</p></section>
 <section id="search" hidden><input id="q" class="search" placeholder="🔎 素材・製作品を検索"><div id="results"></div></section>
-<section id="craft" hidden><h2>🛠️ 製作ナビ</h2><div class="panel"><div class="title">➕ 新しい製作レシピを追加</div><p class="mini">武器・防具・料理などを登録できます。未確認の数量は空欄のままでOK。登録内容はこの端末に保存されます。</p><label>分類</label><select id="newCategory"><option>武器</option><option>防具</option><option>料理</option><option>道具</option><option>ポーション</option><option>アクセサリー</option><option>裁縫</option><option>紡織</option><option>鍛冶</option><option>木工</option><option>錬金術</option><option>調合</option><option>農業</option><option>採集</option><option>釣り</option><option>その他</option></select><label>製作品名</label><input class="edit space" id="newCraftName" placeholder="例：新しい弓"><label>スキル名</label><input class="edit space" id="newSkill" placeholder="例：木工"><label>必要スキルLv（未確認なら空欄）</label><input class="edit space" type="number" id="newLevel" min="1" placeholder="未確認"><label>必要素材（1行に 素材名,個数）</label><textarea class="edit space" id="newParts" rows="4" placeholder="木材,3&#10;革,1"></textarea><label>備考</label><input class="edit space" id="newNote" placeholder="例：装備Lv未確認"><div class="space"><button class="btn" id="addCraft">製作レシピを追加</button></div><div id="customCraftList"></div></div><div class="panel"><b>📊 レシピ登録状況</b><p class="mini">登録枠は実在するレシピを保証しません。未確認の素材・数量は空欄です。</p><div id="recipeCoverage"></div></div><select id="craftName"></select><div class="panel"><div class="row"><label>作りたい個数</label><input type="number" min="1" id="craftQty" value="1"></div><div id="craftResult"></div></div></section>
+<section id="craft" hidden><h2>🛠️ 製作ナビ</h2><p class="mini">デコも分類から登録できます。デコの入力用枠は実在レシピではありません。素材・必要数は確認できるまで未登録です。</p><div class="panel"><div class="title">➕ 新しい製作レシピを追加</div><p class="mini">武器・防具・料理・デコなどを登録できます。未確認の数量は空欄のままでOK。登録内容はこの端末に保存されます。</p><label>分類</label><select id="newCategory"><option>武器</option><option>防具</option><option>料理</option><option>道具</option><option>ポーション</option><option>アクセサリー</option><option>デコ</option><option>裁縫</option><option>紡織</option><option>鍛冶</option><option>木工</option><option>錬金術</option><option>調合</option><option>農業</option><option>採集</option><option>釣り</option><option>その他</option></select><label>製作品名</label><input class="edit space" id="newCraftName" placeholder="例：新しい弓"><label>スキル名</label><input class="edit space" id="newSkill" placeholder="例：木工"><label>必要スキルLv（未確認なら空欄）</label><input class="edit space" type="number" id="newLevel" min="1" placeholder="未確認"><label>必要素材（1行に 素材名,個数）</label><textarea class="edit space" id="newParts" rows="4" placeholder="木材,3&#10;革,1"></textarea><label>備考</label><input class="edit space" id="newNote" placeholder="例：装備Lv未確認"><div class="space"><button class="btn" id="addCraft">製作レシピを追加</button></div><div id="customCraftList"></div></div><div class="panel"><b>📊 レシピ登録状況</b><p class="mini">登録枠は実在するレシピを保証しません。未確認の素材・数量は空欄です。</p><div id="recipeCoverage"></div></div><select id="craftName"></select><div class="panel"><div class="row"><label>作りたい個数</label><input type="number" min="1" id="craftQty" value="1"></div><div id="craftResult"></div></div></section>
 <section id="process" hidden><h2>🔩 加工計算</h2><div class="panel"><div class="title">➕ 新しい加工品を登録</div><p class="mini">登録後、下の加工レシピ編集で材料と完成数を入力できます。</p><input class="edit space" id="newProcessName" placeholder="例：新しい加工品"><button class="btn" id="addProcessName">加工品を追加</button></div><select id="processName"></select><div class="panel"><div class="row"><label>作りたい個数</label><input type="number" min="1" id="processQty" value="10"></div><div id="processResult"></div></div><div class="panel"><div class="title">✏️ 加工レシピ編集</div><p class="mini">複数素材にも対応。1行に「素材名,必要数」を入力します。数字が不明なら空欄のまま保存できます。</p><label class="mini">材料（1行に1種類）</label><textarea id="ingredients" rows="5" class="edit" placeholder="生皮,10&#10;タンニンパウダー,4"></textarea><div class="row space"><label>1回の完成数</label><input type="number" min="1" id="yieldQty" placeholder="未確認"></div><div class="space"><button class="btn" id="saveRecipe">この加工レシピを保存</button></div><p class="mini">編集内容はこの端末に保存されます。公式確認済みの値を変更した場合は「ユーザー編集」と表示します。</p></div></section>
 <section id="skills" hidden><h2>📖 生産スキル図鑑</h2><p class="mini">攻略サイトを参考に主要な生産スキルの説明を追加しました（ゲーム内未確認）。あなたが登録・編集した内容を優先して表示します。習得条件など不明な数値は空欄です。</p><div class="panel"><label>スキル・生産分野</label><input class="edit space" id="skillName" placeholder="例：木工"><label>分類</label><select id="skillCategory"><option>製作</option><option>加工</option><option>採集</option><option>料理</option><option>調合</option><option>その他</option></select><label>効果・説明（未確認なら空欄）</label><textarea class="edit space" id="skillEffect" rows="3" placeholder="ゲーム内で確認した効果など"></textarea><label>習得条件・必要Lv（未確認なら空欄）</label><input class="edit space" id="skillReq" placeholder="未確認"><button class="btn space" id="skillSave">スキルを登録・更新</button><button class="btn2 space" id="skillClear">入力をクリア</button></div><input class="search" id="skillSearch" placeholder="スキル名・分類・効果で検索"><div id="skillList"></div></section><section id="stock" hidden><h2>📦 在庫</h2><input id="stockQ" class="search" placeholder="素材名で絞り込み"><div id="stockResults"></div></section>
-<section id="notes" hidden><h2>📚 メモ・データ管理</h2><div class="panel"><label>素材・製作品</label><select id="memoName"></select><textarea id="memo" class="edit space" rows="5" placeholder="入手場所やスキル効果など"></textarea><button id="saveMemo" class="btn space">メモを保存</button></div><div class="panel"><div class="title">バックアップ</div><p class="mini">在庫・メモ・加工レシピ・追加製作レシピをJSON形式で保存・復元できます。</p><button id="backup" class="btn">バックアップを保存</button><label class="btn2 space" style="display:inline-block">バックアップを読み込む<input type="file" id="restore" accept="application/json" hidden></label></div><div class="panel mini">参考資料：mabimoba-tool.com/life/、colly.website/database/skills/、gamewith.jp/mabinogimobile/578538。参考情報はゲーム内未確認で、仕様変更の可能性があります。</div><div class="panel mini">レシピの「参考値」はゲーム内未確認です。ゲームで確認した数値を優先してください。空欄は推測で埋めません。</div><div class="panel"><div class="title">🏗️ 加工施設アップグレード早見表（参考）</div>
+<section id="notes" hidden><h2>📚 メモ・データ管理</h2><div class="panel"><div class="title">🏠 デコ収集・部品入手の参考</div><p class="mini">デコカタログ掲載名を23件追加。素材数・製作可否は未確認なので計算には使用しないでください。デコスコアは原則として未収集デコを初めて獲得したときに上昇するため、製作台の「未収集デコのみ表示」が役立ちます。</p><p class="mini">デコ製作部品：バルターの雑貨屋、物々交換、図鑑報酬、実績、チャレンジなどで入手できるとの攻略情報があります。ゲーム内で確認してください。</p><p class="mini">出典：<a href="https://jp.erinn.net/housing" target="_blank" rel="noopener">デコカタログ</a> ／ <a href="https://hamatti-games.com/mm-decopartget/" target="_blank" rel="noopener">部品の入手方法</a> ／ <a href="https://hamatti-games.com/mm-myhome/" target="_blank" rel="noopener">未収集デコの注意点</a></p></div><div class="panel"><div class="title">🏠 デコ製作台 Lv2 強化条件（日本版実機参考）</div><p class="mini">デコスコア300以上で、バルターの雑貨屋から「作業用弓鋸」をハートトークン2個で購入し、Lv2への強化に使用します。未収集デコボックスを初めて開封するとデコスコアが増加します。Lv3の詳細必要素材は未確認です。</p><p class="mini"><a href="https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-deco-bench-upgrade/" target="_blank" rel="noopener noreferrer">参考：日本版実機のデコ製作台強化記録</a></p></div><div class="panel"><label>素材・製作品</label><select id="memoName"></select><textarea id="memo" class="edit space" rows="5" placeholder="入手場所やスキル効果など"></textarea><button id="saveMemo" class="btn space">メモを保存</button></div><div class="panel"><div class="title">バックアップ</div><p class="mini">在庫・メモ・加工レシピ・追加製作レシピをJSON形式で保存・復元できます。</p><button id="backup" class="btn">バックアップを保存</button><label class="btn2 space" style="display:inline-block">バックアップを読み込む<input type="file" id="restore" accept="application/json" hidden></label></div><div class="panel mini">参考資料：mabimoba-tool.com/life/、colly.website/database/skills/、gamewith.jp/mabinogimobile/578538。参考情報はゲーム内未確認で、仕様変更の可能性があります。</div><div class="panel mini">レシピの「参考値」はゲーム内未確認です。Ver.8.9.43では公開資料の金属加工4品に加え、木材3品と食材9品を追加しました。韓国版資料に基づく値は日本版で要確認です。ゲームで確認した数値を優先してください。空欄は推測で埋めません。</div><div class="panel"><div class="title">🛡️ 防具製作台アップグレード（日本版実機参考）</div>
+<p class="mini">防具の素材を集める前に、製作台のレベルを確認しよう。数値は2026年10月の日本版実機記録。レシピ素材数とは別の「製作台強化素材」です。</p>
+<table><thead><tr><th>強化</th><th>必要素材</th></tr></thead><tbody>
+<tr><td>Lv1→2</td><td>糸と針 ×1、設備改良部品 ×7、合金インゴット ×3</td></tr>
+<tr><td>Lv2→3</td><td>生地掛け ×1、設備改造部品 ×7、特殊インゴット ×3、防具製作台設計図（レベル3） ×1</td></tr>
+</tbody></table><p class="mini">Lv3設計図：シモンの衣料品店の物々交換／キャラクターLv44以上。Lv3強化完了は記事では未確認。</p>
+<p class="mini">出典：<a href="https://www.pc-support-help.com/2026/10/25/mabinogi-mobile-armor-bench-upgrade/" target="_blank" rel="noopener noreferrer">日本版実機・防具製作台の強化記録</a>。ゲーム内表示を優先してね。</p></div><div class="panel"><div class="title">🏗️ 加工施設アップグレード早見表（参考）</div>
 <p class="mini">2026年10月の日本版実機画像を参考。設備の強化素材であり、通常の製作レシピとは別です。現在のゲーム画面で再確認してください。</p>
 <div class="meta">Lv2：共通「設備改良部品 ×5」＋専用素材（木材：円形ノコギリ／金属：耐火粘土／革：なめし用ブラシ ×1／生地：押し板 ×1／ポーション：薬品抽出管 ×1／食材：十字の刃 ×1）。木材・金属の専用素材の個数は未確認。</div>
 <div class="meta space">Lv3：共通「設備改造部品 ×5」＋各施設の設計図（レベル3）×1＋専用素材 ×1。木材：木工用の紐／金属：滑石の粉／革：固定紐／生地：織機／ポーション：薬品固定枠／食材：投入口の受け台。</div>
@@ -152,7 +276,7 @@ let C=[
 ['料理','旅人のおやつ','料理',1,'卵',1,'肉',1,'HP50%アップ'],['料理','目玉焼き','料理',1,'卵',1,'塩',1,'HP50%アップ'],['料理','ゆで卵','料理',1,'卵',1,'水が入った瓶',1,'HP50%アップ'],['料理','焼いた肉','料理',1,'肉',4,'ハーブ',2,'塩',1,'STR・LUCK少しアップ'],['料理','肉のマヨネーズ炒め','料理',1,'肉',4,'キャベツ',1,'マヨネーズ',1,'STR・WILL少しアップ'],['料理','ポークインミルク','料理',5,'肉',8,'牛乳',4,'ニンニク',2,'ハーブ',2,'STR・LUCK少しアップ'],['料理','チーズフォンデュ','料理',5,'肉',8,'チーズ',2,'ジャガイモ',4,'塩',2,'STR・WILLアップ'],['料理','ジャガイモの丸焼き','料理',1,'ジャガイモ',4,'ハーブ',2,'砂糖',2,'DEX・LUCK少しアップ'],['料理','ポテトサラダ','料理',1,'ジャガイモ',4,'キャベツ',2,'マヨネーズ',1,'DEX・WILL少しアップ'],['料理','野菜炒め','料理',5,'ジャガイモ',8,'タマネギ',3,'キャベツ',6,'ハーブ',2,'DEX・LUCKアップ'],['料理','リコッタチーズサラダ','料理',5,'キャベツ',4,'チーズ',2,'マヨネーズ',1,'DEX・WILLアップ'],['料理','リンゴジュース','料理',1,'リンゴ',4,'ハーブ',2,'水が入った瓶',1,'砂糖',2,'INT・LUCKアップ'],['料理','リンゴサラダ','料理',1,'リンゴ',4,'キャベツ',2,'マヨネーズ',1,'INT・WILL少しアップ'],['料理','コーンチーズ','料理',5,'トウモロコシ',10,'チーズ',2,'ハーブ',2,'砂糖',3,'INT・LUCKアップ'],['料理','リンゴスフレ','料理',5,'リンゴ',8,'小麦粉',2,'卵',4,'砂糖',4,'INT・WILLアップ'],
 ['ポーション','回復ポーション','ポーション調合',null],['ポーション','包帯','ポーション調合',null],['道具','キャンプファイアキット','ハンディクラフト',null],['道具','生活道具（品名入力）','ハンディクラフト',null],['防具','重甲防具（品名入力）','重甲製作',null],['防具','軽甲防具（品名入力）','軽甲製作',null],['防具','布防具（品名入力）','裁縫',null],['アクセサリ','アクセサリ（品名入力）','ハンディクラフト',null]
 ];
-/* Ver.8.9: 2026-10-28 Japanese gameplay screenshot reference, not independently verified */
+/* Ver.8.9.43: 2026-10-28 Japanese gameplay screenshot reference, not independently verified */
 C.push(...[["道具","薬草用の鍬","ハンディクラフト",2,"スチールインゴット",2,"釘",3,"道具の部品",1,"使用Lv25／多目的製作台Lv1／2026年10月実機画像参考・ゲーム内再確認"],["道具","鎌","ハンディクラフト",2,"スチールインゴット",2,"釘",3,"道具の部品",1,"使用Lv25／多目的製作台Lv1／2026年10月実機画像参考・ゲーム内再確認"],["道具","鍬","ハンディクラフト",2,"スチールインゴット",2,"釘",3,"道具の部品",1,"使用Lv25／多目的製作台Lv1／2026年10月実機画像参考・ゲーム内再確認"],["道具","羊毛バサミ","ハンディクラフト",2,"スチールインゴット",2,"釘",3,"道具の部品",1,"使用Lv25／多目的製作台Lv1／2026年10月実機画像参考・ゲーム内再確認"],["道具","伐採斧","ハンディクラフト",2,"スチールインゴット",2,"釘",6,"道具の部品",1,"使用Lv25／多目的製作台Lv1／2026年10月実機画像参考・ゲーム内再確認"],["道具","ツルハシ","ハンディクラフト",2,"スチールインゴット",2,"釘",6,"道具の部品",1,"使用Lv25／多目的製作台Lv1／2026年10月実機画像参考・ゲーム内再確認"],["道具","虫取り網","ハンディクラフト",2,"木材+",3,"釘",6,"道具の部品",1,"使用Lv25／多目的製作台Lv1／2026年10月実機画像参考・ゲーム内再確認"],["道具","釣り竿","ハンディクラフト",2,"木材+",3,"釘",6,"道具の部品",1,"使用Lv25／多目的製作台Lv1／2026年10月実機画像参考・ゲーム内再確認"],["道具","改良された薬草用の鍬","ハンディクラフト",7,"合金インゴット",2,"釘",3,"改良された道具の部品",1,"使用Lv45／多目的製作台Lv2／2026年10月実機画像参考・ゲーム内再確認"],["道具","改良された鎌","ハンディクラフト",7,"合金インゴット",2,"釘",3,"改良された道具の部品",1,"使用Lv45／多目的製作台Lv2／2026年10月実機画像参考・ゲーム内再確認"],["道具","改良された鍬","ハンディクラフト",7,"合金インゴット",2,"釘",3,"改良された道具の部品",1,"使用Lv45／多目的製作台Lv2／2026年10月実機画像参考・ゲーム内再確認"],["道具","改良された羊毛バサミ","ハンディクラフト",7,"合金インゴット",2,"釘",3,"改良された道具の部品",1,"使用Lv45／多目的製作台Lv2／2026年10月実機画像参考・ゲーム内再確認"],["道具","改良された伐採斧","ハンディクラフト",7,"合金インゴット",2,"釘",6,"改良された道具の部品",1,"使用Lv45／多目的製作台Lv2／2026年10月実機画像参考・ゲーム内再確認"],["道具","改良されたツルハシ","ハンディクラフト",7,"合金インゴット",2,"釘",6,"改良された道具の部品",1,"使用Lv45／多目的製作台Lv2／2026年10月実機画像参考・ゲーム内再確認"],["道具","改良された虫取り網","ハンディクラフト",7,"上級木材",3,"釘",6,"改良された道具の部品",1,"使用Lv45／多目的製作台Lv2／2026年10月実機画像参考・ゲーム内再確認"],["道具","改良された釣り竿","ハンディクラフト",7,"上級木材",3,"釘",6,"改良された道具の部品",1,"使用Lv45／多目的製作台Lv2／2026年10月実機画像参考・ゲーム内再確認"]]);
 const R={
 'アイアンインゴット':{parts:[['鉱石',20]],yield:3,source:'ゲーム画面で確認済み'},
@@ -162,9 +286,57 @@ const R={
 '革':{parts:[['生皮',10]],yield:3,source:'ネット参考・要確認'},'革+':{parts:[['革',3],['タンニンパウダー',4]],yield:3,source:'ネット参考・要確認'},'上級革':{parts:[['革+',3],['上級生皮',15],['タンニンパウダー',8]],yield:3,source:'ネット参考・要確認'},
 '生地':{parts:[['羊毛',10]],yield:3,source:'ネット参考・要確認'},'シルク':{parts:[['クモの糸',10]],yield:2,source:'ネット参考・要確認'},'生地+':{parts:[['生地',3],['羊毛',4]],yield:3,source:'ネット参考・要確認'},'上級生地':{parts:[['生地+',3],['上級羊毛',15],['羊毛',8]],yield:3,source:'ネット参考・要確認'},'上級シルク':{parts:[['シルク',4],['元気キノコのエキス',8]],yield:2,source:'ネット参考・要確認'},'マヨネーズ':{parts:[['卵',10],['サラダ油',2]],yield:3,source:'攻略記事の実機画像・要ゲーム内再確認'},'小麦粉':{parts:[['小麦',15]],yield:3,source:'攻略記事の実機画像・要ゲーム内再確認'},'チーズ':{parts:[['牛乳',6],['塩',1]],yield:3,source:'攻略記事の実機画像・要ゲーム内再確認'}
 };
+/* Ver.8.9.43: public recipe reference (2026-10-19). Korean reference values, Japan gameplay verification pending. User edits always take precedence. */
+const PUBLIC_METAL_SOURCE='公開攻略資料（韓国版レシピ／日本版で要再確認） https://mabimoba.kitepon.dev/recipes/metal-processing/';
+const PUBLIC_METAL={
+'特殊インゴット':{parts:[['合金インゴット',4],['白銅鉱',20],['石炭',12]],yield:3,source:PUBLIC_METAL_SOURCE},
+'銀合金インゴット':{parts:[['特殊インゴット',4],['銀鉱',20],['石炭',16]],yield:3,source:'韓国版の仮訳名称・日本版未確認 https://mabimoba.kitepon.dev/recipes/metal-processing/'},
+'隕鉄インゴット':{parts:[['銀合金インゴット',4],['隕鉄鉱',20],['石炭',20]],yield:3,source:'韓国版の仮訳名称・日本版未確認 https://mabimoba.kitepon.dev/recipes/metal-processing/'},
+'タール':{parts:[['丸太',50],['粘土',25]],yield:5,source:'韓国版の仮訳名称・日本版未確認 https://mabimoba.kitepon.dev/recipes/metal-processing/'}
+};
+for(const [name,recipe] of Object.entries(PUBLIC_METAL))if(!R[name])R[name]=recipe;
 /* Source: https://www.pc-support-help.com/2026/10/25/mabinogi-mobile-processing-upgrade/ */
 const MORE_PROCESS={"メキメキキノコのエキス":{"parts":[["メキメキキノコの胞子",10],["水が入った瓶",1]],"yieldQty":5,"source":"2026年10月攻略記事・実機画面参考／ゲーム内再確認"},"元気キノコの粉":{"parts":[["元気キノコ",20]],"yieldQty":5,"source":"2026年10月攻略記事・実機画面参考／ゲーム内再確認"},"元気キノコのエキス":{"parts":[["元気キノコの胞子",10],["水が入った瓶",1]],"yieldQty":5,"source":"2026年10月攻略記事・実機画面参考／ゲーム内再確認"},"光輝の結晶":{"parts":[["幽霊ホタル",3],["マナハーブ",10],["粘土",3]],"yieldQty":3,"source":"2026年10月攻略記事・実機画面参考／ゲーム内再確認"},"メキメキキノコの胞子":{"parts":[["メキメキキノコ",30],["紙",3]],"yieldQty":15,"source":"2026年10月攻略記事・実機画面参考／ゲーム内再確認"},"元気キノコの胞子":{"parts":[["元気キノコ",30],["紙",3]],"yieldQty":15,"source":"2026年10月攻略記事・実機画面参考／ゲーム内再確認"},"ノビノビキノコの胞子":{"parts":[["ノビノビキノコ",30],["紙",3]],"yieldQty":15,"source":"2026年10月攻略記事・実機画面参考／ゲーム内再確認"},"ノビノビキノコのエキス":{"parts":[["ノビノビキノコの胞子",10],["水が入った瓶",1]],"yieldQty":5,"source":"2026年10月攻略記事・実機画面参考／ゲーム内再確認"},"炎の結晶":{"parts":[["夕陽チョウ",3],["マナハーブ",10],["粘土",3]],"yieldQty":3,"source":"2026年10月攻略記事・実機画面参考／ゲーム内再確認"}};
 for(const [n,r] of Object.entries(MORE_PROCESS))if(!R[n])R[n]={parts:r.parts,yield:r.yieldQty,source:r.source};
+
+/* Ver.8.9.43: additional public-reference processing data. Korean-source entries use provisional Japanese names; do not override user edits. */
+const V892_SOURCE_JP='日本版2026年10月実機掲載 https://www.pc-support-help.com/2026/10/25/mabinogi-mobile-processing-upgrade/ （ゲーム内再確認）';
+const V892_SOURCE_KR='韓国版Inven加工データ https://mabimo.inven.co.kr/dataninfo/craft/?boardidx=129&comeidx=6366 （名称仮訳・日本版未確認）';
+const V892_ADDITIONS={
+'上級木材+':{parts:[['上級木材',4],['上級丸太+',20],['樹液',12]],yield:3,source:'韓国版Inven木材加工／日本版未確認 https://mabimo.inven.co.kr/dataninfo/craft/?boardidx=125&comeidx=6366'},
+'最上級木材':{parts:[['上級木材+',5],['最上級丸太',20],['樹液',16]],yield:3,source:'韓国版Inven木材加工／日本版未確認 https://mabimo.inven.co.kr/dataninfo/craft/?boardidx=125&comeidx=6366'},
+'最上級木材+':{parts:[['最上級木材',5],['最上級丸太+',20],['樹液',20]],yield:3,source:'韓国版Inven木材加工／日本版未確認 https://mabimo.inven.co.kr/dataninfo/craft/?boardidx=125&comeidx=6366'},
+'麺（韓国版参考）':{parts:[['小麦粉',3],['卵',5],['水が入った瓶',1]],yield:3,source:V892_SOURCE_KR},
+'生クリーム（韓国版参考）':{parts:[['牛乳',12],['卵',6],['砂糖',2]],yield:3,source:V892_SOURCE_KR},
+'水に浸した豆（韓国版参考）':{parts:[['豆',30],['水が入った瓶',3]],yield:5,source:V892_SOURCE_KR},
+'豆腐（韓国版参考）':{parts:[['水に浸した豆（韓国版参考）',3],['水が入った瓶',1],['塩',2],['生地',3]],yield:3,source:V892_SOURCE_KR},
+'豆乳（韓国版参考）':{parts:[['水に浸した豆（韓国版参考）',3],['水が入った瓶',3],['塩',1],['サラダ油',1]],yield:3,source:V892_SOURCE_KR},
+'水に浸した米（韓国版参考）':{parts:[['米',30],['水が入った瓶',6]],yield:5,source:V892_SOURCE_KR},
+'ご飯（韓国版参考）':{parts:[['水に浸した米（韓国版参考）',8],['水が入った瓶',2]],yield:3,source:V892_SOURCE_KR},
+'乾燥茶葉（韓国版参考）':{parts:[['茶葉',30]],yield:3,source:V892_SOURCE_KR},
+'発酵茶葉（韓国版参考）':{parts:[['乾燥茶葉（韓国版参考）',5],['生地',1]],yield:3,source:V892_SOURCE_KR}
+};
+for(const [name,recipe] of Object.entries(V892_ADDITIONS))if(!R[name])R[name]=recipe;
+for(const name of ['木材','木材+','上級木材','革','革+','上級革','マヨネーズ','小麦粉','チーズ'])if(R[name]&&R[name].source!=='ゲーム画面で確認済み')R[name].source=V892_SOURCE_JP;
+/* Ver.8.9.43: Japanese gameplay screenshots, potion processing. Existing user edits remain higher priority. */
+const V893_SOURCE='日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/25/mabinogi-mobile-processing-upgrade/ （要ゲーム内再確認）';
+const V893_PROCESS={
+'メキメキキノコのエキス':{parts:[['メキメキキノコの胞子',10],['水が入った瓶',1]],yield:5,source:V893_SOURCE},
+'元気キノコの粉':{parts:[['元気キノコ',20]],yield:5,source:V893_SOURCE},
+'元気キノコのエキス':{parts:[['元気キノコの胞子',10],['水が入った瓶',1]],yield:5,source:V893_SOURCE}
+};
+for(const [name,recipe] of Object.entries(V893_PROCESS))if(!R[name])R[name]=recipe;
+/* Fabric processing: no additional quantities verified from this source, so none invented. */
+const V893_ITEM_SOURCE='日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-item-recipes/ （ゲーム内再確認）';
+const V893_CRAFTS=[
+['ポーション','クリティカルの秘薬','ポーション調合',4,'4つ葉のクローバー',10,'ノビノビキノコのエキス',3,'コインテントウムシ',6,'錬金術の残滓',10,'完成3個／ポーション製作台Lv1／'+V893_ITEM_SOURCE],
+['ポーション','究極技の秘薬','ポーション調合',4,'ネバネバ草',10,'ノビノビキノコのエキス',3,'白花チョウ',6,'錬金術の残滓',10,'完成3個／ポーション製作台Lv1／'+V893_ITEM_SOURCE],
+['ポーション','ダメージダウンの秘薬','ポーション調合',6,'ブラッディハーブ',10,'ノビノビキノコのエキス',3,'カブトムシ',6,'錬金術の残滓',10,'完成3個／ポーション製作台Lv2／'+V893_ITEM_SOURCE],
+['ポーション','移動速度の秘薬','ポーション調合',6,'矢花',10,'ノビノビキノコのエキス',3,'チクタクホタル',6,'錬金術の残滓',10,'完成3個／ポーション製作台Lv2／'+V893_ITEM_SOURCE],
+['ポーション','上級クリティカルの秘薬','ポーション調合',10,'クリティカルの秘薬',9,'スッキリキノコのエキス',5,'魔塊のマナストーン',1,'錬金術の残滓',20,'完成3個／ポーション製作台Lv2／'+V893_ITEM_SOURCE],
+['ポーション','上級究極技の秘薬','ポーション調合',10,'究極技の秘薬',9,'スッキリキノコのエキス',5,'魔塊のマナストーン',1,'錬金術の残滓',20,'完成3個／ポーション製作台Lv2／'+V893_ITEM_SOURCE]
+];
+for(const recipe of V893_CRAFTS)if(!C.some(x=>x[0]===recipe[0]&&x[1]===recipe[1]))C.push(recipe);
 const extras=['キャベツ','ジャガイモ','タマネギ','チーズ','トウモロコシ','ニンニク','ハーブ','マヨネーズ','リンゴ','丸太','卵','塩','小麦粉','水が入った瓶','牛乳','生皮','砂糖','羊毛','肉','鉄鉱石','クモの糸','樹液','上級丸太','石炭','銅鉱','サラダ油','小麦','タンニンパウダー','上級生皮','上級羊毛','元気キノコのエキス'];
 let saved={stock:{},memo:{},process:{},crafts:[],mini:[],miniChecks:{},skills:{},quickMemo:[]};try{const x=JSON.parse(localStorage.getItem('mabiDataV2')||localStorage.getItem('mabiDataV1')||'{}');if(x&&typeof x==='object')saved={stock:x.stock||{},memo:x.memo||{},process:x.process||{},crafts:Array.isArray(x.crafts)?x.crafts:[],mini:Array.isArray(x.mini)?x.mini:[],miniChecks:x.miniChecks&&typeof x.miniChecks==='object'?x.miniChecks:{},skills:x.skills&&typeof x.skills==='object'&&!Array.isArray(x.skills)?x.skills:{},quickMemo:Array.isArray(x.quickMemo)?x.quickMemo:[]}}catch(e){}
 let names=[...new Set([...extras,...Object.keys(R),...Object.keys(saved.process),...C.flatMap(r=>{let a=[];for(let i=4;i<r.length-1;i+=2)if(typeof r[i]==='string')a.push(r[i]);return a})])].sort((a,b)=>a.localeCompare(b,'ja'));
@@ -188,9 +360,15 @@ const REFERENCE_CRAFTS=[
  ['武器','ショートソード','鍛冶',1,'アイアンインゴット',3,'木材',1,'ネット参考（mabimoba-tool.com/life/）・ゲーム内未確認'],
  ['武器','フラットダガー','鍛冶',1,'アイアンインゴット',2,'革',2,'ネット参考（mabimoba-tool.com/life/）・ゲーム内未確認']
 ];
-/* Ver.8.9: blank recipe registration starters; not verified recipes */
+/* Ver.8.9.43: blank recipe registration starters; not verified recipes */
+const DECO_STARTERS=[
+ ['デコ','デコ家具（レシピ入力用）','未確認'],
+ ['デコ','デコ装飾品（レシピ入力用）','未確認'],
+ ['デコ','デコ設置物（レシピ入力用）','未確認']
+];
+/* デコの実在品名・素材・個数は未確認。以下は入力用の枠のみ。 */
 const RECIPE_STARTERS=[['防具','重甲防具（レシピ入力用）','重甲製作'],['防具','軽甲防具（レシピ入力用）','軽甲製作'],['防具','布防具（レシピ入力用）','裁縫'],['武器','魔法武器（レシピ入力用）','マジッククラフト'],['武器','楽器武器（レシピ入力用）','木工'],['道具','採集道具（レシピ入力用）','ハンディクラフト'],['ポーション','調合品（レシピ入力用）','ポーション調合'],['料理','料理（レシピ入力用）','料理'],['アクセサリー','アクセサリー（レシピ入力用）','ハンディクラフト'],['武器','弓（レシピ入力用）','木工'],['武器','杖（レシピ入力用）','マジッククラフト'],['武器','両手武器（レシピ入力用）','鍛冶'],['防具','盾（レシピ入力用）','鍛冶'],['防具','手袋（レシピ入力用）','裁縫'],['防具','靴（レシピ入力用）','裁縫'],['料理','焼き料理（レシピ入力用）','料理'],['料理','煮込み料理（レシピ入力用）','料理'],['ポーション','回復薬（レシピ入力用）','ポーション調合']];
-/* Ver.8.9: category coverage placeholders only; no invented recipe quantities. */
+/* Ver.8.9.43: category coverage placeholders only; no invented recipe quantities. */
 const V89_STARTERS=[
  ['武器','片手剣（レシピ入力用）','鍛冶'],['武器','両手剣（レシピ入力用）','鍛冶'],['武器','短剣（レシピ入力用）','鍛冶'],['武器','斧（レシピ入力用）','鍛冶'],['武器','鈍器（レシピ入力用）','鍛冶'],['武器','クロスボウ（レシピ入力用）','木工'],['武器','魔法書（レシピ入力用）','マジッククラフト'],
  ['防具','兜（レシピ入力用）','重甲製作'],['防具','鎧（レシピ入力用）','重甲製作'],['防具','軽甲兜（レシピ入力用）','軽甲製作'],['防具','軽甲鎧（レシピ入力用）','軽甲製作'],['防具','布帽子（レシピ入力用）','裁縫'],['防具','ローブ（レシピ入力用）','裁縫'],
@@ -200,9 +378,72 @@ const V89_STARTERS=[
  ['アクセサリー','指輪（レシピ入力用）','ハンディクラフト'],['アクセサリー','ネックレス（レシピ入力用）','ハンディクラフト'],
  ['裁縫','布製品（レシピ入力用）','裁縫'],['紡織','糸（レシピ入力用）','紡織'],['紡織','布（レシピ入力用）','紡織'],['鍛冶','金属部品（レシピ入力用）','鍛冶'],['木工','木製部品（レシピ入力用）','木工'],['錬金術','錬金素材（レシピ入力用）','錬金術'],['調合','調合素材（レシピ入力用）','ポーション調合'],['農業','農作物加工（レシピ入力用）','農業'],['採集','採集素材（レシピ入力用）','採集'],['釣り','釣果加工（レシピ入力用）','釣り']
 ];
-RECIPE_STARTERS.push(...V89_STARTERS);
+RECIPE_STARTERS.push(...V89_STARTERS,...DECO_STARTERS);
 for(const [cat,name,skill] of RECIPE_STARTERS){if(!C.some(r=>r[1]===name))C.push([cat,name,skill,null,'未登録・素材と必要数はゲーム内確認後に入力'])}
-const SKILL_SEEDS=[...new Set([...Object.keys(REFERENCE_SKILLS),'紡織','採集','農業','錬金術'])];C.push(...REFERENCE_CRAFTS.filter(r=>!C.some(x=>x[1]===r[1])));const baseCraftCount=C.length;C.push(...saved.crafts.filter(r=>Array.isArray(r)&&r.length>=5));
+const SKILL_SEEDS=[...new Set([...Object.keys(REFERENCE_SKILLS),'紡織','採集','農業','錬金術'])];C.push(...REFERENCE_CRAFTS.filter(r=>!C.some(x=>x[1]===r[1])));
+/* Ver.8.9.43 Japanese screenshot-based armor recipes. */
+const V894_ARMOR=[["防具","鱗の靴","重甲製作",1,"アイアンインゴット",2,"革",1,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","鱗の鎧（下）","重甲製作",1,"アイアンインゴット",2,"生地",2,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","鱗の手袋","重甲製作",1,"アイアンインゴット",2,"シルク",2,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","鱗の鎧（上）","重甲製作",1,"アイアンインゴット",3,"生地",1,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","鱗のヘルム","重甲製作",1,"アイアンインゴット",2,"革",1,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","チェーンシューズ","重甲製作",3,"スチールインゴット",2,"革＋",1,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","チェーンアーマー（下）","重甲製作",3,"スチールインゴット",2,"生地＋",2,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","チェーングローブ","重甲製作",3,"スチールインゴット",2,"シルク",3,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","チェーンアーマー（上）","重甲製作",3,"スチールインゴット",3,"生地＋",1,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","チェーンヘルム","重甲製作",3,"スチールインゴット",2,"革＋",1,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","鱗の靴S","重甲製作",6,"合金インゴット",3,"革＋",2,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","鱗の鎧（下）S","重甲製作",6,"合金インゴット",3,"生地＋",3,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","鱗の手袋S","重甲製作",6,"合金インゴット",2,"シルク",4,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","鱗の鎧（上）S","重甲製作",6,"合金インゴット",4,"生地＋",2,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","鱗のヘルムS","重甲製作",6,"合金インゴット",3,"革＋",2,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","チェーンシューズS","重甲製作",8,"合金インゴット",3,"上級革",2,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","チェーンアーマー（下）S","重甲製作",8,"合金インゴット",3,"上級生地",3,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","チェーングローブS","重甲製作",8,"合金インゴット",2,"上級シルク",2,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","チェーンアーマー（上）S","重甲製作",8,"合金インゴット",4,"上級生地",2,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","チェーンヘルムS","重甲製作",8,"合金インゴット",3,"上級革",2,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","革の鎧靴","軽甲製作",1,"革",2,"アイアンインゴット",1,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","革の鎧（下）","軽甲製作",1,"革",2,"生地",2,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","革の鎧手袋","軽甲製作",1,"革",2,"シルク",2,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","革の鎧（上）","軽甲製作",1,"革",3,"生地",1,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","革の鎧ヘルム","軽甲製作",1,"革",2,"アイアンインゴット",1,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚い革の鎧靴","軽甲製作",3,"革＋",2,"スチールインゴット",1,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚い革の鎧（下）","軽甲製作",3,"革＋",2,"生地＋",2,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚い革の鎧手袋","軽甲製作",3,"革＋",2,"シルク",3,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚い革の鎧（上）","軽甲製作",3,"革＋",3,"生地＋",1,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚い革の鎧ヘルム","軽甲製作",3,"革＋",2,"スチールインゴット",1,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","革の鎧靴S","軽甲製作",6,"上級革",3,"スチールインゴット",2,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","革の鎧（下）S","軽甲製作",6,"上級革",3,"生地＋",3,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","革の鎧手袋S","軽甲製作",6,"上級革",2,"シルク",4,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","革の鎧（上）S","軽甲製作",6,"上級革",4,"生地＋",2,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","革の鎧ヘルムS","軽甲製作",6,"上級革",3,"スチールインゴット",2,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚い革の鎧靴S","軽甲製作",8,"上級革",3,"合金インゴット",2,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚い革の鎧（下）S","軽甲製作",8,"上級革",3,"上級生地",3,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚い革の鎧手袋S","軽甲製作",8,"上級革",2,"上級シルク",2,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚い革の鎧（上）S","軽甲製作",8,"上級革",4,"上級生地",2,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚い革の鎧ヘルムS","軽甲製作",8,"上級革",3,"合金インゴット",2,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","タクティカルブーツ","裁縫",1,"生地",2,"アイアンインゴット",1,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","バトルボトムス","裁縫",1,"生地",2,"革",2,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","タクティカルグローブ","裁縫",1,"生地",2,"シルク",2,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","バトルトップス","裁縫",1,"生地",3,"アイアンインゴット",1,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","タクティカルヘルム","裁縫",1,"生地",2,"革",1,"装備Lv20／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚手のタクティカルブーツ","裁縫",3,"生地＋",2,"スチールインゴット",1,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚手のバトルボトムス","裁縫",3,"生地＋",2,"革＋",2,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚手のタクティカルグローブ","裁縫",3,"生地＋",2,"シルク",3,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚手のバトルトップス","裁縫",3,"生地＋",3,"スチールインゴット",1,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚手のタクティカルヘルム","裁縫",3,"生地＋",2,"革＋",1,"装備Lv30／防具製作台Lv1／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","タクティカルブーツS","裁縫",6,"上級生地",3,"スチールインゴット",2,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","バトルボトムスS","裁縫",6,"上級生地",3,"革＋",3,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","タクティカルグローブS","裁縫",6,"上級生地",2,"シルク",4,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","バトルトップスS","裁縫",6,"上級生地",4,"スチールインゴット",2,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","タクティカルヘルムS","裁縫",6,"上級生地",3,"革＋",2,"装備Lv40／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚手のタクティカルブーツS","裁縫",8,"上級生地",3,"合金インゴット",2,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚手のバトルボトムスS","裁縫",8,"上級生地",3,"上級革",3,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚手のタクティカルグローブS","裁縫",8,"上級生地",2,"上級シルク",2,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚手のバトルトップスS","裁縫",8,"上級生地",4,"合金インゴット",2,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"],["防具","厚手のタクティカルヘルムS","裁縫",8,"上級生地",3,"上級革",2,"装備Lv50／防具製作台Lv2／日本版2026年10月実機画像 https://www.pc-support-help.com/2026/10/27/mabinogi-mobile-armor-recipes/ （ゲーム内再確認）"]];
+for(const rec of V894_ARMOR)if(!C.some(x=>x[0]===rec[0]&&x[1]===rec[1]))C.push(rec);
+
+/* Ver.8.9.43: Japanese gameplay screenshot reference, accessories 14 */
+const V895_ACCESSORIES=[["アクセサリ","ペリドットネックレス","ハンディクラフト",1,"細工されたペリドット",1,"アイアンインゴット",2,"装備Lv20／多目的製作台Lv1／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","ティアガーネットネックレス","ハンディクラフト",2,"細工されたガーネット",1,"スチールインゴット",2,"装備Lv25／多目的製作台Lv1／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","ブルースピネルペンダント","ハンディクラフト",3,"細工されたブルースピネル",1,"スチールインゴット",3,"装備Lv30／多目的製作台Lv1／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","シャインジルコンネックレス","ハンディクラフト",5,"細工されたジルコン",1,"合金インゴット",2,"装備Lv35／多目的製作台Lv2／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","ペリドットネックレスS","ハンディクラフト",6,"細工されたペリドットS",1,"合金インゴット",2,"装備Lv40／多目的製作台Lv2／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","ティアガーネットネックレスS","ハンディクラフト",7,"細工されたガーネットS",1,"合金インゴット",3,"装備Lv45／多目的製作台Lv2／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","ブルースピネルペンダントS","ハンディクラフト",8,"細工されたブルースピネルS",1,"合金インゴット",3,"装備Lv50／多目的製作台Lv2／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","ペリドット指輪","ハンディクラフト",1,"細工されたペリドット",1,"アイアンインゴット",2,"装備Lv20／多目的製作台Lv1／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","ティアガーネット指輪","ハンディクラフト",2,"細工されたガーネット",1,"スチールインゴット",2,"装備Lv25／多目的製作台Lv1／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","ブルースピネル指輪","ハンディクラフト",3,"細工されたブルースピネル",1,"スチールインゴット",3,"装備Lv30／多目的製作台Lv1／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","シャインジルコン指輪","ハンディクラフト",5,"細工されたジルコン",1,"合金インゴット",2,"装備Lv35／多目的製作台Lv2／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","ペリドット指輪S","ハンディクラフト",6,"細工されたペリドットS",1,"合金インゴット",2,"装備Lv40／多目的製作台Lv2／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","ティアガーネット指輪S","ハンディクラフト",7,"細工されたガーネットS",1,"合金インゴット",3,"装備Lv45／多目的製作台Lv2／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"],["アクセサリ","ブルースピネル指輪S","ハンディクラフト",8,"細工されたブルースピネルS",1,"合金インゴット",3,"装備Lv50／多目的製作台Lv2／日本版実機画像（2026年10月） https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-accessory-recipes/ （ゲーム内再確認）"]];
+for(const rec of V895_ACCESSORIES)if(!C.some(x=>x[0]===rec[0]&&x[1]===rec[1]))C.push(rec);
+
+/* Ver.8.9.43: source-verified Japanese weapon recipes (no unverified quantities) */
+const V896_WEAPONS=[["武器","ローンエッジソード","鍛冶",1,"アイアンインゴット",2,"革",2,"装備Lv20／武器製作台Lv1／日本版実機画像：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-swordsman-class-change/ （ゲーム内再確認）"],["武器","クレセントエッジソード","鍛冶",3,"スチールインゴット",2,"革+",2,"装備Lv30／武器製作台Lv1／日本版実機画像：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-swordsman-class-change/ （ゲーム内再確認）"],["武器","ローンエッジソードS","鍛冶",6,"合金インゴット",3,"革+",3,"装備Lv40／武器製作台Lv2／日本版実機画像：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-swordsman-class-change/ （ゲーム内再確認）"],["武器","クレセントエッジソードS","鍛冶",8,"合金インゴット",3,"上級革",3,"装備Lv50／武器製作台Lv2／日本版実機画像：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-swordsman-class-change/ （ゲーム内再確認）"],["武器","グレートソード","鍛冶",1,"アイアンインゴット",3,"木材",1,"武器製作台Lv1／日本版実機画像：https://www.pc-support-help.com/2026/10/24/mabinogi-mobile-weapon-craft/ （ゲーム内再確認）"],["武器","コンポジットボウ","木工",3,"木材+",3,"革+",1,"武器製作台Lv1／日本版実機画像：https://www.pc-support-help.com/2026/10/24/mabinogi-mobile-weapon-craft/ （ゲーム内再確認）"]];
+for(const rec of V896_WEAPONS)if(!C.some(x=>x[0]===rec[0]&&x[1]===rec[1]))C.push(rec);
+/* Ver.8.9.43: bow recipes verified from Japanese gameplay screenshots */
+const V897_BOWS=[["武器","ショートボウ","木工",1,"木材",3,"革",1,"装備Lv20／武器製作台Lv1／日本版実機画像：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-bow-class-change/ （ゲーム内再確認）"],["武器","ショートボウS","木工",6,"上級木材",4,"革+",2,"装備Lv40／武器製作台Lv2／日本版実機画像：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-bow-class-change/ （ゲーム内再確認）"],["武器","コンポジットボウS","木工",8,"上級木材",4,"上級革",2,"装備Lv50／武器製作台Lv2／日本版実機画像：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-bow-class-change/ （ゲーム内再確認）"]];
+for(const rec of V897_BOWS)if(!C.some(x=>x[0]===rec[0]&&x[1]===rec[1]))C.push(rec);
+
+/* Ver.8.9.43: verified Japanese mage, healer and bard weapon recipes */
+const V898_WEAPONS=[["武器","ウッドワンド","マジッククラフト",1,"木材",2,"革",2,"装備Lv20／武器製作台Lv1／日本版実機画像：https://www.pc-support-help.com/2026/10/19/mabinogi-mobile-mage-class-change/ （ゲーム内再確認）"],["武器","ケルティックワンド","マジッククラフト",3,"木材+",2,"革+",2,"装備Lv30／武器製作台Lv1／日本版実機画像：https://www.pc-support-help.com/2026/10/19/mabinogi-mobile-mage-class-change/ （ゲーム内再確認）"],["武器","ウッドワンドS","マジッククラフト",6,"上級木材",3,"革+",3,"装備Lv40／武器製作台Lv2／日本版実機画像：https://www.pc-support-help.com/2026/10/19/mabinogi-mobile-mage-class-change/ （ゲーム内再確認）"],["武器","ケルティックワンドS","マジッククラフト",8,"上級木材",3,"上級革",3,"装備Lv50／武器製作台Lv2／日本版実機画像：https://www.pc-support-help.com/2026/10/19/mabinogi-mobile-mage-class-change/ （ゲーム内再確認）"],["武器","マーブルヒーリングワンド","マジッククラフト",1,"木材",2,"アイアンインゴット",2,"装備Lv20／武器製作台Lv1／日本版実機画像：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-healer-class-change/ （ゲーム内再確認）"],["武器","ロータスヒーリングワンド","マジッククラフト",3,"木材+",2,"スチールインゴット",2,"装備Lv30／武器製作台Lv1／日本版実機画像：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-healer-class-change/ （ゲーム内再確認）"],["武器","マーブルヒーリングワンドS","マジッククラフト",6,"上級木材",3,"スチールインゴット",3,"装備Lv40／武器製作台Lv2／日本版実機画像：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-healer-class-change/ （ゲーム内再確認）"],["武器","ロータスヒーリングワンドS","マジッククラフト",8,"上級木材",3,"合金インゴット",3,"装備Lv50／武器製作台Lv2／日本版実機画像：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-healer-class-change/ （ゲーム内再確認）"],["武器","ケルティックリュート","木工",1,"木材",3,"アイアンインゴット",1,"装備Lv20／武器製作台Lv1／日本版実機画像：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-bard-class-change/ （ゲーム内再確認）"]];
+for(const rec of V898_WEAPONS)if(!C.some(x=>x[0]===rec[0]&&x[1]===rec[1]))C.push(rec);
+
+/* Ver.8.9.43: six class weapons, verified published JP gameplay data */
+const V899_WEAPONS=[["武器","ラウンドヘッドケイン","マジッククラフト",1,"アイアンインゴット",3,"木材",1,"火炎術師／装備Lv20／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/19/mabinogi-mobile-fire-class-change/ （ゲーム内再確認）"],["武器","アークスピアケイン","マジッククラフト",3,"スチールインゴット",3,"木材+",1,"火炎術師／装備Lv30／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/19/mabinogi-mobile-fire-class-change/ （ゲーム内再確認）"],["武器","ラウンドヘッドケインS","マジッククラフト",6,"合金インゴット",4,"木材+",2,"火炎術師／装備Lv40／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/19/mabinogi-mobile-fire-class-change/ （ゲーム内再確認）"],["武器","アークスピアケインS","マジッククラフト",8,"合金インゴット",4,"上級木材",2,"火炎術師／装備Lv50／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/19/mabinogi-mobile-fire-class-change/ （ゲーム内再確認）"],["武器","スノーオーブ","マジッククラフト",1,"木材",2,"アイアンインゴット",2,"氷結術師／装備Lv20／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/19/mabinogi-mobile-ice-class-change/ （ゲーム内再確認）"],["武器","クリスタルスタッフ","マジッククラフト",1,"木材",2,"アイアンインゴット",2,"司祭／装備Lv20／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-priest-class-change/ （ゲーム内再確認）"],["武器","ホーリーウィングスタッフ","マジッククラフト",3,"木材+",2,"スチールインゴット",2,"司祭／装備Lv30／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-priest-class-change/ （ゲーム内再確認）"],["武器","クリスタルスタッフS","マジッククラフト",6,"上級木材",3,"スチールインゴット",3,"司祭／装備Lv40／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-priest-class-change/ （ゲーム内再確認）"],["武器","ホーリーウィングスタッフS","マジッククラフト",8,"上級木材",3,"合金インゴット",3,"司祭／装備Lv50／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-priest-class-change/ （ゲーム内再確認）"],["武器","ブラントクォータースタッフ","マジッククラフト",1,"アイアンインゴット",3,"木材",1,"修道士／装備Lv20／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/12/mabinogi-mobile-monk/ （ゲーム内再確認）"],["武器","ディヴァインクォータースタッフ","マジッククラフト",3,"スチールインゴット",3,"木材+",1,"修道士／装備Lv30／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/12/mabinogi-mobile-monk/ （ゲーム内再確認）"],["武器","ブラントクォータースタッフS","マジッククラフト",6,"合金インゴット",4,"木材+",2,"修道士／装備Lv40／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/12/mabinogi-mobile-monk/ （ゲーム内再確認）"],["武器","ディヴァインクォータースタッフS","マジッククラフト",8,"合金インゴット",4,"上級木材",2,"修道士／装備Lv50／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/12/mabinogi-mobile-monk/ （ゲーム内再確認）"],["武器","カーブドハープ","木工",1,"木材",3,"アイアンインゴット",1,"楽師／装備Lv20／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-musician-class-change/ （ゲーム内再確認）"],["武器","グレイスハープ","木工",3,"木材+",3,"スチールインゴット",1,"楽師／装備Lv30／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-musician-class-change/ （ゲーム内再確認）"],["武器","カーブドハープS","木工",6,"上級木材",4,"スチールインゴット",2,"楽師／装備Lv40／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-musician-class-change/ （ゲーム内再確認）"],["武器","グレイスハープS","木工",8,"上級木材",4,"合金インゴット",2,"楽師／装備Lv50／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-musician-class-change/ （ゲーム内再確認）"],["武器","花びらの扇子","木工",1,"木材",2,"アイアンインゴット",2,"ダンサー／装備Lv20／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-dancer-class-change/ （ゲーム内再確認）"],["武器","アンティークチャクラム","木工",3,"木材+",2,"スチールインゴット",2,"ダンサー／装備Lv30／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-dancer-class-change/ （ゲーム内再確認）"],["武器","花びらの扇子S","木工",6,"上級木材",3,"スチールインゴット",3,"ダンサー／装備Lv40／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-dancer-class-change/ （ゲーム内再確認）"],["武器","アンティークチャクラムS","木工",8,"上級木材",3,"合金インゴット",3,"ダンサー／装備Lv50／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-dancer-class-change/ （ゲーム内再確認）"]];
+for(const rec of V899_WEAPONS)if(!C.some(x=>x[0]===rec[0]&&x[1]===rec[1]))C.push(rec);
+
+/* Ver.8.9.43: Japan screenshot-verified ice mage and warrior recipes */
+const V8910_WEAPONS=[["武器","グレイシアオーブ","マジッククラフト",3,"木材＋",2,"スチールインゴット",2,"氷結術師／装備Lv30／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/19/mabinogi-mobile-ice-class-change/"],["武器","スノーオーブS","マジッククラフト",6,"上級木材",3,"スチールインゴット",3,"氷結術師／装備Lv40／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/19/mabinogi-mobile-ice-class-change/"],["武器","グレイシアオーブS","マジッククラフト",8,"上級木材",3,"合金インゴット",3,"氷結術師／装備Lv50／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/19/mabinogi-mobile-ice-class-change/"],["武器","ショートソード","鍛冶",1,"アイアンインゴット",3,"木材",1,"戦士／装備Lv20／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/17/mabinogi-mobile-warrior-class-change/"],["武器","片手斧","鍛冶",3,"スチールインゴット",3,"木材＋",1,"戦士／装備Lv30／武器製作台Lv1／日本版実機資料：https://www.pc-support-help.com/2026/10/17/mabinogi-mobile-warrior-class-change/"],["武器","ショートソードS","鍛冶",6,"合金インゴット",4,"木材＋",2,"戦士／装備Lv40／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/17/mabinogi-mobile-warrior-class-change/"],["武器","片手斧S","鍛冶",8,"合金インゴット",4,"上級木材",2,"戦士／装備Lv50／武器製作台Lv2／日本版実機資料：https://www.pc-support-help.com/2026/10/17/mabinogi-mobile-warrior-class-change/"]];
+for(const rec of V8910_WEAPONS)if(!C.some(x=>x[0]===rec[0]&&x[1]===rec[1]))C.push(rec);
+
+/* Ver.8.9.43: 17 weapon recipes from Japanese screenshots; duplicate-safe */
+const V8911_WEAPONS=[["武器","フラットダガー","鍛冶",1,"アイアンインゴット",2,"革",2,"盗賊／装備Lv20／武器製作台Lv1／日本版公開実機記録：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-thief-class-change/（ゲーム内再確認）"],["武器","スティレット","鍛冶",3,"スチールインゴット",2,"革＋",2,"盗賊／装備Lv30／武器製作台Lv1／日本版公開実機記録：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-thief-class-change/（ゲーム内再確認）"],["武器","フラットダガーS","鍛冶",6,"合金インゴット",3,"革＋",3,"盗賊／装備Lv40／武器製作台Lv2／日本版公開実機記録：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-thief-class-change/（ゲーム内再確認）"],["武器","スティレットS","鍛冶",8,"合金インゴット",3,"上級革",3,"盗賊／装備Lv50／武器製作台Lv2／日本版公開実機記録：https://www.pc-support-help.com/2026/10/23/mabinogi-mobile-thief-class-change/（ゲーム内再確認）"],["武器","シャープデュアルソード","鍛冶",1,"アイアンインゴット",3,"革",1,"デュアルブレイド／装備Lv20／武器製作台Lv1／日本版公開実機記録：https://www.pc-support-help.com/2026/10/24/mabinogi-mobile-dual-blade-class-change/（ゲーム内再確認）"],["武器","グランドデュアルソード","鍛冶",3,"スチールインゴット",3,"革＋",1,"デュアルブレイド／装備Lv30／武器製作台Lv1／日本版公開実機記録：https://www.pc-support-help.com/2026/10/24/mabinogi-mobile-dual-blade-class-change/（ゲーム内再確認）"],["武器","シャープデュアルソードS","鍛冶",6,"合金インゴット",4,"革＋",2,"デュアルブレイド／装備Lv40／武器製作台Lv2／日本版公開実機記録：https://www.pc-support-help.com/2026/10/24/mabinogi-mobile-dual-blade-class-change/（ゲーム内再確認）"],["武器","グランドデュアルソードS","鍛冶",8,"合金インゴット",4,"上級革",2,"デュアルブレイド／装備Lv50／武器製作台Lv2／日本版公開実機記録：https://www.pc-support-help.com/2026/10/24/mabinogi-mobile-dual-blade-class-change/（ゲーム内再確認）"],["武器","ライトナックル","鍛冶",1,"アイアンインゴット",2,"革",2,"格闘家／装備Lv20／武器製作台Lv1／日本版公開実機記録：https://www.pc-support-help.com/2026/10/24/mabinogi-mobile-fighter-class-change/（ゲーム内再確認）"],["武器","ライトロングボウ","木工",1,"木材",3,"革",1,"ロングボウ使い／装備Lv20／武器製作台Lv1／日本版公開実機記録：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-longbow-class-change/（ゲーム内再確認）"],["武器","グランドロングボウ","木工",3,"木材＋",3,"革＋",1,"ロングボウ使い／装備Lv30／武器製作台Lv1／日本版公開実機記録：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-longbow-class-change/（ゲーム内再確認）"],["武器","ライトロングボウS","木工",6,"上級木材",4,"革＋",2,"ロングボウ使い／装備Lv40／武器製作台Lv2／日本版公開実機記録：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-longbow-class-change/（ゲーム内再確認）"],["武器","グランドロングボウS","木工",8,"上級木材",4,"上級革",2,"ロングボウ使い／装備Lv50／武器製作台Lv2／日本版公開実機記録：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-longbow-class-change/（ゲーム内再確認）"],["武器","ライトクロスボウ","木工",1,"木材",2,"アイアンインゴット",2,"クロスボウ使い／装備Lv20／武器製作台Lv1／日本版公開実機記録：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-crossbow-class-change/（ゲーム内再確認）"],["武器","グランドクロスボウ","木工",3,"木材＋",2,"スチールインゴット",2,"クロスボウ使い／装備Lv30／武器製作台Lv1／日本版公開実機記録：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-crossbow-class-change/（ゲーム内再確認）"],["武器","ライトクロスボウS","木工",6,"上級木材",3,"スチールインゴット",3,"クロスボウ使い／装備Lv40／武器製作台Lv2／日本版公開実機記録：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-crossbow-class-change/（ゲーム内再確認）"],["武器","グランドクロスボウS","木工",8,"上級木材",3,"合金インゴット",3,"クロスボウ使い／装備Lv50／武器製作台Lv2／日本版公開実機記録：https://www.pc-support-help.com/2026/10/18/mabinogi-mobile-crossbow-class-change/（ゲーム内再確認）"]];
+for(const rec of V8911_WEAPONS)if(!C.some(x=>x[0]===rec[0]&&x[1]===rec[1]))C.push(rec);
+
+/* Ver.8.9.43: published Japanese deco recipes, independently unverified in game */
+const V8915_DECO=[["デコ","材料転送機","ハンディクラフト",4,"座標変換機",1,"デコ製作部品+",6,"木材+",15,"電気の結晶",10,"鉄鉱",50,"デコ製作台Lv2／座標変換機はデコスコア2600点以上で購入／公開資料参考・ゲーム内再確認 https://gaming-st.com/pc-games/mabinogi-mobile-material-transfer-machine/"],["デコ","エレガントなサイドテーブルA","ハンディクラフト",12,"デコ製作部品",3,"上級丸太+",16,"生地+",1,"デコ製作台Lv4／初回開封デコスコア50点／公開資料参考・ゲーム内再確認 https://gaming-st.com/pc-games/mabinogi-mobile-deco-score/"],["デコ","印象的な食器棚B","ハンディクラフト",16,"上級デコ製作部品",3,"上級丸太+",20,"木材",1,"粘土",10,"鉄鉱",10,"デコ製作台Lv4／初回開封デコスコア105点／公開資料参考・ゲーム内再確認 https://gaming-st.com/pc-games/mabinogi-mobile-deco-score/"]];
+for(const rec of V8915_DECO)if(!C.some(x=>x[0]===rec[0]&&x[1]===rec[1]))C.push(rec);
+
+/* Ver.8.9.43: Japanese gameplay screenshot deco recipe reference */
+const V8918_DECO=[["デコ","独創的な円形サイドテーブルA","ハンディクラフト",5,"デコ製作部品",3,"丸太",12,"上級丸太",4,"デコ製作台Lv2／未収集時開封デコスコア+50／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","独創的な円形サイドテーブルB","ハンディクラフト",5,"デコ製作部品",3,"丸太",12,"上級丸太",4,"デコ製作台Lv2／未収集時開封デコスコア+50／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","独創的な円形サイドテーブルC","ハンディクラフト",5,"デコ製作部品",3,"丸太",12,"上級丸太",4,"デコ製作台Lv2／未収集時開封デコスコア+50／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","素朴な四角テーブルA","ハンディクラフト",4,"デコ製作部品",3,"丸太",12,"上級丸太+",4,"デコ製作台Lv2／未収集時開封デコスコア+50／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","素朴な四角テーブルB","ハンディクラフト",4,"デコ製作部品",3,"丸太",12,"上級丸太+",4,"デコ製作台Lv2／未収集時開封デコスコア+50／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","素朴な四角テーブルC","ハンディクラフト",4,"デコ製作部品",3,"丸太",12,"上級丸太+",4,"デコ製作台Lv2／未収集時開封デコスコア+50／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","実用的なサイドテーブルA","ハンディクラフト",1,"デコ製作部品",3,"丸太",16,"デコ製作台Lv1／未収集時開封デコスコア+0／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","実用的なサイドテーブルB","ハンディクラフト",1,"デコ製作部品",3,"丸太",16,"デコ製作台Lv1／未収集時開封デコスコア+0／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","洗練された本棚A","ハンディクラフト",8,"デコ製作部品+",3,"丸太",30,"紙",300,"革",20,"デコ製作台Lv2／未収集時開封デコスコア+80／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","洗練された本棚B","ハンディクラフト",8,"デコ製作部品+",3,"丸太",30,"紙",300,"革",20,"デコ製作台Lv2／未収集時開封デコスコア+80／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","素朴なカーテンA","ハンディクラフト",3,"デコ製作部品",2,"生地",2,"鉄鉱",4,"デコ製作台Lv2／未収集時開封デコスコア+30／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","素朴なカーテンB","ハンディクラフト",3,"デコ製作部品",2,"生地",2,"鉄鉱",4,"デコ製作台Lv2／未収集時開封デコスコア+30／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","素朴なカーテンC","ハンディクラフト",3,"デコ製作部品",2,"生地",2,"鉄鉱",4,"デコ製作台Lv2／未収集時開封デコスコア+30／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","実用的なキャンドル","ハンディクラフト",2,"デコ製作部品",2,"丸太",1,"蜜蝋",1,"炎の結晶",1,"デコ製作台Lv1／未収集時開封デコスコア+30／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"],["デコ","メモリーライト","ハンディクラフト",4,"上級デコ製作部品",2,"鉄鉱",10,"錬金術の残滓",20,"光輝の結晶",1,"デコ製作台Lv2／未収集時開封デコスコア+105／日本版2026年10月実機画像参考 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/ （ゲーム内再確認）"]];
+for(const rec of V8918_DECO)if(!C.some(x=>x[0]===rec[0]&&x[1]===rec[1]))C.push(rec);
+
+/* Ver.8.9.43: Japanese housing catalog item names; recipes/materials NOT verified. */
+const V8919_CATALOG=["実用的なサイドテーブルA", "実用的な四角テーブルA", "実用的な四角テーブルC", "標準的な円形テーブルA", "素朴な四角テーブルA", "落ち着いた楕円形テーブルA", "独創的な円形サイドテーブルA", "洗練された直線型カウンターA", "洗練されたL字型カウンターA", "心地よいサイドテーブルA", "心地よいサイドテーブルC", "シンプルなテーブルA", "個性的な四角テーブルA", "上品な楕円形テーブルA", "上品な四角テーブルA", "独創的なクローゼットA", "落ち着いた収納棚A", "洗練された本棚A", "エレガントなソファA", "標準的なベッドA", "ハロウィンの椅子A", "ハロウィンの2人掛けソファA", "落ち着いた木製パーテーションA"];
+for(const name of V8919_CATALOG)if(!C.some(r=>r[0]==='デコ'&&r[1]===name))C.push(['デコ',name,'ハンディクラフト',null,'名称はデコカタログ掲載／素材・個数・製作可否は未確認 https://jp.erinn.net/housing']);
+
+/* Ver.8.9.43: source-listed deco materials; replace only blank built-in placeholders, not user data */
+const V8920_DECO=[["デコ","標準的な椅子A","ハンディクラフト",2,"デコ製作部品",3,"丸太",6,"デコ製作台Lv1／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","標準的な椅子B","ハンディクラフト",2,"デコ製作部品",3,"丸太",6,"デコ製作台Lv1／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","標準的な椅子C","ハンディクラフト",2,"デコ製作部品",3,"丸太",6,"デコ製作台Lv1／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","洗練された椅子A","ハンディクラフト",3,"デコ製作部品",3,"丸太",7,"羊毛",7,"デコ製作台Lv2／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","洗練された椅子B","ハンディクラフト",3,"デコ製作部品",3,"丸太",7,"羊毛",7,"デコ製作台Lv2／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","洗練された椅子C","ハンディクラフト",3,"デコ製作部品",3,"丸太",7,"羊毛",7,"デコ製作台Lv2／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴なスツールA","ハンディクラフト",4,"デコ製作部品",3,"丸太",5,"羊毛",7,"デコ製作台Lv2／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴なスツールB","ハンディクラフト",4,"デコ製作部品",3,"丸太",5,"羊毛",7,"デコ製作台Lv2／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴なスツールC","ハンディクラフト",4,"デコ製作部品",3,"丸太",5,"羊毛",7,"デコ製作台Lv2／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","標準的なベッドA","ハンディクラフト",4,"デコ製作部品",4,"丸太",20,"羊毛",30,"デコ製作台Lv1／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","標準的なベッドB","ハンディクラフト",4,"デコ製作部品",4,"丸太",20,"羊毛",30,"デコ製作台Lv1／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","標準的なベッドC","ハンディクラフト",4,"デコ製作部品",4,"丸太",20,"羊毛",30,"デコ製作台Lv1／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","標準的なベッドD","ハンディクラフト",4,"デコ製作部品",4,"丸太",20,"羊毛",30,"デコ製作台Lv1／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","標準的なベッドE","ハンディクラフト",4,"デコ製作部品",4,"丸太",20,"羊毛",30,"デコ製作台Lv1／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","洗練された本棚A","ハンディクラフト",8,"デコ製作部品＋",3,"丸太",30,"紙",300,"革",20,"デコ製作台Lv2／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","洗練された本棚B","ハンディクラフト",8,"デコ製作部品＋",3,"丸太",30,"紙",300,"革",20,"デコ製作台Lv2／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いた収納棚A","ハンディクラフト",8,"デコ製作部品＋",3,"丸太",25,"粘土",60,"デコ製作台Lv2／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いた収納棚B","ハンディクラフト",8,"デコ製作部品＋",3,"丸太",25,"粘土",60,"デコ製作台Lv2／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴なペットベッド","ハンディクラフト",6,"デコ製作部品",5,"丸太",12,"羊毛",10,"デコ製作台Lv2／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","洗練されたオルゴール","ハンディクラフト",8,"デコ製作部品",4,"スチールインゴット",2,"鉄鉱",25,"凝縮された風",3,"デコ製作台Lv2／2026年10月日本版実機画像掲載の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"]];
+for(const rec of V8920_DECO){const i=C.findIndex(x=>x[0]==='デコ'&&x[1]===rec[1]);if(i<0)C.push(rec);else if(C[i].length<7||!C[i].slice(4,-1).some((v,j)=>j%2===1&&Number(v)>0))C[i]=rec;}
+
+/* Ver.8.9.43: 18 lighting recipes from Japanese screenshots */
+const V8922_LIGHTS=[["デコ","洗練されたシーリングライト","ハンディクラフト",3,"デコ製作部品",3,"生地",2,"鉄鉱",10,"光輝の結晶",3,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴なシーリングライト","ハンディクラフト",3,"デコ製作部品",3,"生地",2,"鉄鉱",10,"光輝の結晶",3,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","洗練された壁掛けキャンドル","ハンディクラフト",4,"デコ製作部品",2,"蜜蝋",1,"銅鉱",5,"鉄鉱",3,"炎の結晶",1,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","独創的な壁掛けキャンドル","ハンディクラフト",4,"デコ製作部品",2,"蜜蝋",1,"銅鉱",5,"鉄鉱",3,"炎の結晶",1,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴な壁掛けキャンドル","ハンディクラフト",4,"デコ製作部品",2,"蜜蝋",1,"丸太",1,"炎の結晶",1,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いた卓上ランプ","ハンディクラフト",4,"デコ製作部品",2,"生地",1,"銅鉱",3,"光輝の結晶",1,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いたキャンドルC","ハンディクラフト",4,"デコ製作部品",2,"蜜蝋",2,"上級丸太",2,"炎の結晶",1,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","標準的な卓上ランタン","ハンディクラフト",4,"デコ製作部品",2,"鉄鉱",3,"光輝の結晶",1,"照明／デコ製作台Lv1／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いたキャンドルB","ハンディクラフト",3,"デコ製作部品",2,"蜜蝋",3,"丸太",3,"炎の結晶",1,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いたキャンドルA","ハンディクラフト",3,"デコ製作部品",2,"蜜蝋",1,"銅鉱",1,"炎の結晶",1,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","実用的な卓上ランプ","ハンディクラフト",2,"デコ製作部品",2,"生地",1,"光輝の結晶",1,"照明／デコ製作台Lv1／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","標準的な卓上ランプ","ハンディクラフト",2,"デコ製作部品",2,"生地",1,"光輝の結晶",1,"照明／デコ製作台Lv1／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","標準的なキャンドル","ハンディクラフト",1,"デコ製作部品",2,"蜜蝋",1,"炎の結晶",1,"照明／デコ製作台Lv1／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","独創的なスタンドキャンドルホルダーB","ハンディクラフト",6,"デコ製作部品",2,"蜜蝋",2,"鉄鉱",3,"炎の結晶",1,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","独創的なスタンドキャンドルホルダーA","ハンディクラフト",6,"デコ製作部品",2,"蜜蝋",2,"銅鉱",3,"ブラッディハーブ",5,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いたスタンドランプC","ハンディクラフト",4,"デコ製作部品",2,"生地",1,"上級丸太",3,"光輝の結晶",1,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いたスタンドランプB","ハンディクラフト",4,"デコ製作部品",2,"生地",1,"丸太",3,"光輝の結晶",1,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いたスタンドランプA","ハンディクラフト",4,"デコ製作部品",2,"生地",1,"鉄鉱",3,"光輝の結晶",1,"照明／デコ製作台Lv2／未収集時開封デコスコア+40／日本版2026年10月実機画像参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"]];
+for(const rec of V8922_LIGHTS){const i=C.findIndex(x=>x[0]===rec[0]&&x[1]===rec[1]);if(i<0)C.push(rec);else if(C[i].length<7||!C[i].slice(4,-1).some((v,j)=>j%2===1&&Number(v)>0))C[i]=rec;}
+
+/* Ver.8.9.43: catalog-confirmed decoration names; not confirmed as craftable */
+const V8923_DECOR_CATALOG=["精巧な全身鏡A", "精巧な柱時計A", "エレガントな植木鉢A", "エレガントな植木鉢B", "エレガントな壁掛け植木鉢", "スタイリッシュ植木鉢", "スタイリッシュ植木鉢(極小)", "スタイリッシュ植木鉢(超極小)", "印象的な植木鉢(大)", "上品な植木鉢(小)", "上品な植木鉢(大)A", "精巧な植木鉢", "素朴な壁掛け鏡", "素朴な壁掛け植木鉢", "独創的な植木鉢(中)", "落ち着いた植木鉢(極小)", "落ち着いた植木鉢(中)", "落ち着いた植木鉢A", "素朴な植木鉢(極小)", "素朴な植木鉢(中)", "素朴なラグA", "精巧な食器"];
+for(const name of V8923_DECOR_CATALOG)if(!C.some(r=>r[0]==='デコ'&&r[1]===name))C.push(['デコ',name,'未確認','','名称のみ確認／製作可否・素材・必要数は未確認 https://colly.website/database/deco/']);
+
+/* Ver.8.9.43: decoration and functional deco recipes, sourced from Japan screenshot list */
+const V8924_DECO=[["デコ","落ち着いた壁掛け植木鉢","ハンディクラフト",2,"デコ製作部品",2,"尖葉の苗",1,"粘土",4,"生命のマナストーン",5,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴な壁掛け植木鉢","ハンディクラフト",2,"デコ製作部品",2,"複葉の苗",2,"粘土",6,"生命のマナストーン",2,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いた円形時計","ハンディクラフト",3,"デコ製作部品",2,"丸太",1,"鉄鉱",2,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","洗練された壁掛け鏡","ハンディクラフト",4,"デコ製作部品",2,"木材",1,"銅鉱",10,"鉄鉱",5,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴な壁掛け鏡","ハンディクラフト",4,"デコ製作部品",2,"木材",1,"銅鉱",10,"鉄鉱",5,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いたタオル掛け","ハンディクラフト",6,"デコ製作部品",2,"木材＋",2,"生地",3,"鉄鉱",10,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴なクモの巣A","ハンディクラフト",6,"デコ製作部品",4,"クモの糸",15,"封印の結晶",2,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/／必要デコスコア1000"],["デコ","素朴なクモの巣B","ハンディクラフト",6,"デコ製作部品",4,"クモの糸",12,"封印の結晶",2,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/／必要デコスコア1000"],["デコ","素朴なクモの巣C","ハンディクラフト",6,"デコ製作部品",4,"クモの糸",9,"封印の結晶",2,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/／必要デコスコア1000"],["デコ","素朴なクモの巣D","ハンディクラフト",6,"デコ製作部品",4,"クモの糸",20,"封印の結晶",2,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/／必要デコスコア1000"],["デコ","落ち着いたコネクトドア","ハンディクラフト",6,"デコ製作部品",6,"丸太",35,"封印の結晶",5,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/／必要デコスコア1000"],["デコ","実用的な洗面桶","ハンディクラフト",2,"デコ製作部品",2,"丸太",1,"水が入った瓶",1,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv1／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","標準的な洗面桶","ハンディクラフト",2,"デコ製作部品",2,"丸太",1,"水が入った瓶",1,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv1／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","洗練された羊皮紙の山","ハンディクラフト",6,"デコ製作部品",2,"革",2,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","洗練された羊皮紙と羽根ペンセット","ハンディクラフト",6,"デコ製作部品",2,"革",1,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴なガラス瓶A","ハンディクラフト",4,"デコ製作部品",2,"粘土",5,"蜜蝋",1,"炎の結晶",1,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴なガラス瓶B","ハンディクラフト",6,"デコ製作部品",2,"粘土",5,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴なガラス瓶C","ハンディクラフト",6,"デコ製作部品",2,"粘土",5,"丸太",1,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いた貝の飾り箱","ハンディクラフト",4,"デコ製作部品",2,"貝",6,"紙",1,"丸太",1,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv2／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","実用的なキャンドル","ハンディクラフト",2,"デコ製作部品",2,"丸太",1,"蜜蝋",1,"炎の結晶",1,"日本版2026年10月実機画像を整理した公開資料／デコ製作台Lv1／開封スコア+30／ゲーム内要再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"]];
+for(const rec of V8924_DECO){const i=C.findIndex(x=>x[0]===rec[0]&&x[1]===rec[1]);if(i<0)C.push(rec);else if(C[i].length<7||!C[i].slice(4,-1).some((v,j)=>j%2===1&&Number(v)>0))C[i]=rec;}
+
+/* Ver.8.9.43: 16 deco furniture recipes from Japanese screenshots */
+const V8925_DECO=[["デコ","洗練されたシンクA","ハンディクラフト",6,"デコ製作部品",4,"丸太",15,"上級丸太",4,"鉄鉱",10,"デコ製作台Lv2／必要デコスコア2,200／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","独創的なシンクA","ハンディクラフト",6,"デコ製作部品",4,"丸太",15,"上級丸太＋",4,"鉄鉱",10,"デコ製作台Lv2／必要デコスコア2,200／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴なシンクA","ハンディクラフト",6,"デコ製作部品",4,"丸太",19,"鉄鉱",10,"樹液",4,"デコ製作台Lv2／必要デコスコア2,200／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いたシンクA","ハンディクラフト",6,"デコ製作部品",4,"丸太",19,"鉄鉱",10,"デコ製作台Lv2／必要デコスコア2,200／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴な火鉢A","ハンディクラフト",2,"デコ製作部品",3,"鉄鉱",6,"丸太",16,"炎の結晶",3,"デコ製作台Lv2／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","洗練されたシンクB","ハンディクラフト",6,"デコ製作部品",4,"丸太",15,"上級丸太",4,"鉄鉱",10,"デコ製作台Lv2／必要デコスコア2,200／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","独創的なシンクB","ハンディクラフト",6,"デコ製作部品",4,"丸太",15,"上級丸太＋",4,"鉄鉱",10,"デコ製作台Lv2／必要デコスコア2,200／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴なシンクB","ハンディクラフト",6,"デコ製作部品",4,"丸太",19,"鉄鉱",10,"樹液",4,"デコ製作台Lv2／必要デコスコア2,200／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いたシンクB","ハンディクラフト",6,"デコ製作部品",4,"丸太",19,"鉄鉱",10,"デコ製作台Lv2／必要デコスコア2,200／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","素朴な火鉢B","ハンディクラフト",2,"デコ製作部品",3,"鉄鉱",6,"丸太",16,"炎の結晶",3,"デコ製作台Lv2／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いた木製パーテーションA","ハンディクラフト",6,"デコ製作部品",2,"丸太",10,"デコ製作台Lv2／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いた木製パーテーションB","ハンディクラフト",6,"デコ製作部品",2,"丸太",10,"デコ製作台Lv2／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いた木製パーテーションC","ハンディクラフト",6,"デコ製作部品",2,"丸太",10,"ノビノビキノコのエキス",1,"スッキリキノコのエキス",1,"デコ製作台Lv2／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いた木製パーテーションD","ハンディクラフト",6,"デコ製作部品",2,"丸太",10,"メキメキキノコのエキス",2,"デコ製作台Lv2／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いた暖炉A","ハンディクラフト",8,"デコ製作部品",5,"石ころ",20,"木材",1,"粘土",50,"丸太",10,"炎の結晶",10,"デコ製作台Lv2／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"],["デコ","落ち着いた暖炉B","ハンディクラフト",8,"デコ製作部品",5,"石ころ",20,"木材",1,"粘土",50,"丸太",10,"炎の結晶",10,"元気キノコのエキス",5,"デコ製作台Lv2／日本版実機画像の公開資料参考・ゲーム内再確認 https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-deco-recipes/"]];
+for(const rec of V8925_DECO){const i=C.findIndex(x=>x[0]==='デコ'&&x[1]===rec[1]);if(i<0)C.push(rec);else if(!C[i].slice(4,-1).some((v,j)=>j%2===1&&Number(v)>0))C[i]=rec;}
+const baseCraftCount=C.length;C.push(...saved.crafts.filter(r=>Array.isArray(r)&&r.length>=5));
 const $=id=>document.getElementById(id),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const store=()=>localStorage.setItem('mabiDataV2',JSON.stringify(saved));const qty=id=>Math.max(1,Math.ceil(Number($(id).value)||1));const record=n=>saved.process[n]||R[n];
 function refreshCraftLists(){names=[...new Set([...extras,...Object.keys(R),...Object.keys(saved.process),...C.flatMap(r=>partsOf(r).map(p=>p[0])),...Object.values(saved.process).flatMap(r=>(r.parts||[]).map(p=>p[0]))])].sort((a,b)=>a.localeCompare(b,'ja'));$('miniCraft').innerHTML=C.map((r,i)=>`<option value="${i}">${esc(r[0])}｜${esc(r[1])}</option>`).join('');$('craftName').innerHTML=C.map((r,i)=>`<option value="${i}">${esc(r[0])}｜${esc(r[1])}</option>`).join('');$('memoName').innerHTML=[...new Set([...names,...C.map(r=>r[1])])].sort((a,b)=>a.localeCompare(b,'ja')).map(n=>`<option>${esc(n)}</option>`).join('');$('customCraftList').innerHTML=saved.crafts.map((r,i)=>`<div class="line row"><span>${esc(r[1])}</span><span><button class="btn2" onclick="editCraft(${i})">編集</button> <button class="btn2" onclick="deleteCraft(${i})">削除</button></span></div>`).join('');stock();search();craft();renderMini()}
 function addCraft(){const name=$('newCraftName').value.trim(),category=$('newCategory').value,skill=$('newSkill').value.trim(),level=$('newLevel').value.trim(),note=$('newNote').value.trim();if(!name){alert('製作品名を入力してください');return}if(C.some((r,i)=>r[1]===name&&(editingCraft<0||i!==baseCraftCount+editingCraft))){alert('同じ名前の製作品がすでにあります');return}if(level&&(!/^[1-9]\d*$/.test(level))){alert('必要Lvは1以上の整数にしてください');return}const lines=$('newParts').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean),parts=[];for(const line of lines){const a=line.split(/[,，、]/),n=(a[0]||'').trim(),v=(a[1]||'').trim();if(!n||a.length>2||(v&&!/^[1-9]\d*$/.test(v))){alert('素材は「素材名,個数」で入力してください');return}if(parts.some(p=>p[0]===n)){alert('同じ素材が重複しています');return}parts.push([n,v?Number(v):''])}const r=[category,name,skill||'未確認',level?Number(level):'',...parts.flat(),note||'ユーザー登録・要確認'];if(editingCraft>=0){saved.crafts[editingCraft]=r;C[baseCraftCount+editingCraft]=r;}else{saved.crafts.push(r);C.push(r)}const selected=editingCraft>=0?baseCraftCount+editingCraft:C.length-1;editingCraft=-1;$('addCraft').textContent='製作レシピを追加';store();refreshCraftLists();$('craftName').value=selected;craft();$('newCraftName').value='';$('newParts').value='';$('newNote').value='';alert('製作レシピを保存しました')}
@@ -218,7 +459,7 @@ function renderRecipeCoverage(){
  const categories=[...new Set(C.map(r=>r[0]))];
  el.innerHTML=categories.map(cat=>{const rows=C.filter(r=>r[0]===cat),ready=rows.filter(r=>partsOf(r).length>0&&partsOf(r).every(p=>Number.isInteger(p[1])&&p[1]>0)).length;return `<div class="line row"><span>${esc(cat)}</span><span class="meta">素材数入力済 ${ready} / ${rows.length} 件</span></div>`}).join('');
 }
-function craft(){renderRecipeCoverage();const r=C[Number($('craftName').value)],n=qty('craftQty');if(!r)return;let ps=partsOf(r),needs=ps.map(([name,count])=>[name,count===null?null:count*n]);let h=`<h2>${esc(r[1])} × ${n}個</h2><p class="meta">${esc(r[2])} ／ Lv ${esc(r[3]??'未確認')} ／ ${esc(r[r.length-1]||'詳細未確認')}</p><h2>必要素材・在庫との差</h2>`;h+=needs.length?needs.map(([name,count])=>`<div class="line row"><b>${esc(name)}</b><span class="meta">${count===null?'必要数未確認':`必要 ${count} ／ 在庫 ${Number(saved.stock[name]||0)} ／ <span class="count">不足 ${Math.max(0,count-Number(saved.stock[name]||0))}</span>`}</span></div>`).join(''):'<p class="warn">この製作品の素材レシピは未登録です。</p>';const p=plan(needs.filter(x=>x[1]!==null));h+='<h2>🔩 加工手順</h2>'+(p.steps.map(s=>`<div class="panel"><b>${esc(s.n)}：${s.runs}回加工 → ${s.produced}個</b><div class="meta">${s.parts.map(x=>esc(x[0])+' × '+x[1]).join('、')}</div><div class="mini">${esc(s.source)}</div></div>`).join('')||'<p class="mini">計算できる加工工程はありません。</p>');h+='<h2>🌿 採集・入手する素材</h2>'+(Object.entries(p.raw).map(([x,v])=>`<div class="line row"><b>${esc(x)}</b><span class="count">${v}個</span></div>`).join('')||'<p class="mini">計算できる不足原材料はありません。</p>');if(p.unknown.length||needs.some(x=>x[1]===null))h+='<p class="warn">⚠️ 未確認：'+[...new Set([...p.unknown,...needs.filter(x=>x[1]===null).map(x=>x[0]+'：必要数未確認')])].map(esc).join('、')+'。未確認の工程は原材料の総数を確定できません。</p>';$('craftResult').innerHTML=h}
+function craft(){renderRecipeCoverage();const r=C[Number($('craftName').value)],n=qty('craftQty');if(!r)return;const note=String(r[r.length-1]||'');const status=note.includes('韓国版')||note.includes('先行版')?'🌏 先行版参考・日本版未確認':note.includes('日本版実機')||note.includes('日本版公開実機')?'📷 日本版公開資料を参照・ゲーム内再確認推奨':note.includes('ユーザー登録')?'✏️ 自分で登録したレシピ':'❔ 出典・必要数を要確認';let ps=partsOf(r),needs=ps.map(([name,count])=>[name,count===null?null:count*n]);let h=`<h2>${esc(r[1])} × ${n}個</h2><p class="meta">${esc(status)}</p><p class="meta">${esc(r[2])} ／ Lv ${esc(r[3]??'未確認')} ／ ${esc(r[r.length-1]||'詳細未確認')}</p><h2>必要素材・在庫との差</h2>`;h+=needs.length?needs.map(([name,count])=>`<div class="line row"><b>${esc(name)}</b><span class="meta">${count===null?'必要数未確認':`必要 ${count} ／ 在庫 ${Number(saved.stock[name]||0)} ／ <span class="count">不足 ${Math.max(0,count-Number(saved.stock[name]||0))}</span>`}</span></div>`).join(''):'<p class="warn">この製作品の素材レシピは未登録です。</p>';const p=plan(needs.filter(x=>x[1]!==null));h+='<h2>🔩 加工手順</h2>'+(p.steps.map(s=>`<div class="panel"><b>${esc(s.n)}：${s.runs}回加工 → ${s.produced}個</b><div class="meta">${s.parts.map(x=>esc(x[0])+' × '+x[1]).join('、')}</div><div class="mini">${esc(s.source)}</div></div>`).join('')||'<p class="mini">計算できる加工工程はありません。</p>');h+='<h2>🌿 採集・入手する素材</h2>'+(Object.entries(p.raw).map(([x,v])=>`<div class="line row"><b>${esc(x)}</b><span class="count">${v}個</span></div>`).join('')||'<p class="mini">計算できる不足原材料はありません。</p>');if(p.unknown.length||needs.some(x=>x[1]===null))h+='<p class="warn">⚠️ 未確認：'+[...new Set([...p.unknown,...needs.filter(x=>x[1]===null).map(x=>x[0]+'：必要数未確認')])].map(esc).join('、')+'。未確認の工程は原材料の総数を確定できません。</p>';$('craftResult').innerHTML=h}
 function renderProcess(){const n=$('processName').value,r=record(n),want=qty('processQty');if(!r){$('processResult').innerHTML='<p class="warn">レシピ未登録</p>';return}let p=plan([[n,want]]);let steps=p.steps.filter(x=>x.n===n);$('processResult').innerHTML=`<h2>${esc(n)} × ${want}個</h2><p class="mini">${esc(r.source||'ユーザー編集')}</p>`+(steps.length?steps.map(s=>`<p class="good">加工 ${s.runs}回 ／ 完成 ${s.produced}個</p><div class="meta">${s.parts.map(x=>esc(x[0])+' × '+x[1]).join('、')}</div>`).join(''):p.unknown.length?'<p class="warn">必要数・完成数が未確認です。</p>':'<p class="good">在庫で足ります。</p>')+'<h2>不足原材料</h2>'+(Object.entries(p.raw).map(([x,v])=>`<div class="line row"><b>${esc(x)}</b><span>${v}個</span></div>`).join('')||'<p class="mini">計算できる不足原材料はありません。</p>')+(p.unknown.length?'<p class="warn">⚠️ '+p.unknown.map(esc).join('、')+'</p>':'')}
 function loadEdit(){let r=record($('processName').value);$('ingredients').value=(r?.parts||[]).map(p=>p[0]+','+(p[1]??'')).join('\n');$('yieldQty').value=r?.yield??'';renderProcess()}
 function saveRecipe(){let n=$('processName').value,lines=$('ingredients').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean),parts=[];for(let line of lines){let a=line.split(/[,，、]/),name=(a[0]||'').trim(),v=(a[1]||'').trim();if(!name||a.length>2||v&&!/^[1-9]\d*$/.test(v)){alert('材料は「素材名,必要数」の形式で入力してください');return}parts.push([name,v?Number(v):null])}let y=$('yieldQty').value.trim();if(y&&!/^[1-9]\d*$/.test(y)){alert('完成数は1以上の整数にしてください');return}saved.process[n]={parts,yield:y?Number(y):null,source:'ユーザー編集・要確認'};store();refreshProcessNames();refreshCraftLists();renderProcess();craft();search();renderMini();alert('保存しました')}
@@ -278,12 +519,17 @@ function renderMini(){
  ${warnings.length?`<p class="warn">⚠️ 未確認：${warnings.map(esc).join('、')}</p>`:''}`;
 }
 
+let qmSortMode='added';try{qmSortMode=localStorage.getItem('mabiFloatMemoSort')||'added'}catch(e){}
 let qmSelected=-1;function qmSelect(i){qmSelected=i;renderQuickMemo()}
 function renderQuickMemo(){
  const rows=Array.isArray(saved.quickMemo)?saved.quickMemo:[];
+ const ordered=rows.map((r,i)=>({r,i}));
+ if(qmSortMode==='name')ordered.sort((a,b)=>String(a.r.name).localeCompare(String(b.r.name),'ja'));
+ else if(qmSortMode==='qtyDesc')ordered.sort((a,b)=>(Number(b.r.qty)||0)-(Number(a.r.qty)||0)||a.i-b.i);
+ else if(qmSortMode==='qtyAsc')ordered.sort((a,b)=>(Number(a.r.qty)||0)-(Number(b.r.qty)||0)||a.i-b.i);
  if(rows.length && (qmSelected<0 || qmSelected>=rows.length)) qmSelected=0;
  $('qmCount').textContent='('+rows.length+'件)';
- $('quickMemoRows').innerHTML=rows.map((r,i)=>`<div class="qm-row"><b title="素材名">${esc(r.name)}</b><input type="number" min="0" step="1" value="${Math.max(0,Math.floor(Number(r.qty)||0))}" aria-label="${esc(r.name)}のメモ個数" onchange="qmUpdate(${i},this.value)"><button class="btn2" type="button" aria-label="${esc(r.name)}を5減らす" onclick="qmStep(${i},-5)">−5</button><button class="btn2" type="button" aria-label="${esc(r.name)}を1減らす" onclick="qmStep(${i},-1)">−</button><button class="btn2" type="button" aria-label="${esc(r.name)}を1増やす" onclick="qmStep(${i},1)">＋</button><button class="btn2" type="button" aria-label="${esc(r.name)}を5増やす" onclick="qmStep(${i},5)">＋5</button><button class="btn2 qm-delete" type="button" aria-label="${esc(r.name)}を削除" onclick="qmRemove(${i})">✕</button></div>`).join('')||'<p class="mini">メモはまだありません。</p>';
+ $('quickMemoRows').innerHTML=ordered.map(({r,i})=>`<div class="qm-row"><b title="素材名">${esc(r.name)}</b><input type="number" min="0" step="1" value="${Math.max(0,Math.floor(Number(r.qty)||0))}" aria-label="${esc(r.name)}のメモ個数" onchange="qmUpdate(${i},this.value)"><button class="btn2" type="button" aria-label="${esc(r.name)}を5減らす" onclick="qmStep(${i},-5)">−5</button><button class="btn2" type="button" aria-label="${esc(r.name)}を1減らす" onclick="qmStep(${i},-1)">−</button><button class="btn2" type="button" aria-label="${esc(r.name)}を1増やす" onclick="qmStep(${i},1)">＋</button><button class="btn2" type="button" aria-label="${esc(r.name)}を5増やす" onclick="qmStep(${i},5)">＋5</button><button class="btn2 qm-delete" type="button" aria-label="${esc(r.name)}を削除" onclick="qmRemove(${i})">✕</button></div>`).join('')||'<p class="mini">メモはまだありません。</p>';
 }
 function qmAdd(){const name=$('qmName').value.trim(),val=$('qmQty').value.trim();if(!name){alert('素材名を入力してください');return}if(name.length>100){alert('素材名は100文字以内にしてください');return}if(!/^\d+$/.test(val)||!Number.isSafeInteger(Number(val))){alert('個数は0以上の整数で入力してください');return}if(!Array.isArray(saved.quickMemo))saved.quickMemo=[];const found=saved.quickMemo.find(x=>x.name===name);if(found){const total=Number(found.qty||0)+Number(val);if(!Number.isSafeInteger(total)){alert('合計個数が大きすぎます');return}found.qty=total;}else saved.quickMemo.push({name,qty:Number(val)});qmSelected=saved.quickMemo.findIndex(x=>x.name===name);store();$('qmName').value='';$('qmQty').value='';renderQuickMemo();}
 function qmUpdate(i,v){if(!/^\d+$/.test(String(v))||!Number.isSafeInteger(Number(v))){alert('0以上の整数で入力してください');renderQuickMemo();return}if(!saved.quickMemo?.[i])return;saved.quickMemo[i].qty=Number(v);store();renderQuickMemo()}
@@ -315,4 +561,388 @@ function editSkill(n){const x=(saved.skills||{})[n]||{};$('skillName').value=n;c
 function saveSkill(){const n=$('skillName').value.trim();if(!n){alert('スキル名を入力してください');return}if(!saved.skills)saved.skills={};saved.skills[n]={category:$('skillCategory').value,effect:$('skillEffect').value.trim(),req:$('skillReq').value.trim()};store();renderSkills();alert('スキル情報を保存しました')}
 function addProcessName(){const n=$('newProcessName').value.trim();if(!n){alert('加工品名を入力してください');return}if(n.length>80){alert('名前が長すぎます');return}if(!record(n))saved.process[n]={parts:[],yield:null,source:'ユーザー登録・未確認'};store();refreshProcessNames();$('processName').value=n;$('newProcessName').value='';loadEdit();refreshCraftLists();alert('加工品を登録しました。材料・完成数を入力してください')}
 $('skillSave').addEventListener('click',saveSkill);$('skillClear').addEventListener('click',()=>{['skillName','skillEffect','skillReq'].forEach(id=>$(id).value='');$('skillCategory').value='製作'});$('skillSearch').addEventListener('input',renderSkills);$('addProcessName').addEventListener('click',addProcessName);renderSkills();
+
+/* Ver.8.9.43 tools reference: three-material recipes shown in full, without truncation */
+const V896_TOOLS=[{"name":"薬草用の鍬","materials":[["スチールインゴット",2],["釘",3],["道具の部品",1]]},{"name":"鎌","materials":[["スチールインゴット",2],["釘",3],["道具の部品",1]]},{"name":"鍬","materials":[["スチールインゴット",2],["釘",3],["道具の部品",1]]},{"name":"羊毛バサミ","materials":[["スチールインゴット",2],["釘",3],["道具の部品",1]]},{"name":"伐採斧","materials":[["スチールインゴット",2],["釘",6],["道具の部品",1]]},{"name":"ツルハシ","materials":[["スチールインゴット",2],["釘",6],["道具の部品",1]]},{"name":"虫取り網","materials":[["木材+",3],["釘",6],["道具の部品",1]]},{"name":"釣り竿","materials":[["木材+",3],["釘",6],["道具の部品",1]]},{"name":"改良された薬草用の鍬","materials":[["合金インゴット",2],["釘",3],["改良された道具の部品",1]]},{"name":"改良された鎌","materials":[["合金インゴット",2],["釘",3],["改良された道具の部品",1]]},{"name":"改良された鍬","materials":[["合金インゴット",2],["釘",3],["改良された道具の部品",1]]},{"name":"改良された羊毛バサミ","materials":[["合金インゴット",2],["釘",3],["改良された道具の部品",1]]},{"name":"改良された伐採斧","materials":[["合金インゴット",2],["釘",6],["改良された道具の部品",1]]},{"name":"改良されたツルハシ","materials":[["合金インゴット",2],["釘",6],["改良された道具の部品",1]]},{"name":"改良された虫取り網","materials":[["上級木材",3],["釘",6],["改良された道具の部品",1]]},{"name":"改良された釣り竿","materials":[["上級木材",3],["釘",6],["改良された道具の部品",1]]}];
+window.addEventListener("DOMContentLoaded",()=>{const host=document.getElementById("crafts")||document.getElementById("craft");if(!host)return;const section=document.createElement("div");section.className="panel";section.innerHTML="<div class=title>🧰 生活道具16種類・必要素材一覧</div><p class=mini>日本版実機画像を参考。3種類の素材を省略せず掲載。ゲーム内で再確認してください。</p>"+V896_TOOLS.map(x=>"<div style=padding:6px;border-bottom:1px solid #556><b>"+esc(x.name)+"</b><div class=mini>"+x.materials.map(p=>esc(p[0])+" ×"+p[1]).join(" ／ ")+"</div></div>").join("")+"<p class=mini>出典：<a href=https://www.pc-support-help.com/2026/10/28/mabinogi-mobile-tool-recipes/ target=_blank rel=noopener>日本版の道具製作レシピ</a></p>";host.appendChild(section)});
+
+/* Ver.8.9.43: searchable deco index with explicit verification status */
+function renderDecoIndex(){
+ const host=document.getElementById('decoIndex');if(!host)return;
+ const q=document.getElementById('decoFilter').value.trim().toLowerCase();
+ const matches=C.map((r,i)=>({r,i})).filter(({r})=>r[0]==='デコ'&&r[1].toLowerCase().includes(q));
+ const verified=matches.filter(({r})=>r.length>=7&&r.slice(4,-1).some((v,i)=>i%2===1&&Number(v)>0));
+ host.innerHTML='<p class="mini">デコ '+matches.length+'件／素材数入り '+verified.length+'件。公開情報はゲーム内で再確認してください。</p>'+
+ matches.map(({r,i})=>{
+  const pairs=[];for(let k=4;k<r.length-1;k+=2)if(typeof r[k]==='string'&&r[k]&&!r[k].includes('未登録'))pairs.push(esc(r[k])+' × '+(Number.isFinite(Number(r[k+1]))&&r[k+1]!=null?esc(String(r[k+1])):'未確認'));
+  const status=pairs.length?'公開資料参考・未検証':'入力用枠・未確認';
+  return '<div class="line"><b>'+esc(r[1])+'</b><div class="mini">'+esc(status)+'</div><div class="mini">'+(pairs.join('、')||'素材・個数は未登録')+'</div><button type="button" class="btn2" data-deco-index="'+i+'">製作計算へ</button></div>';
+ }).join('')||'<p class="mini">該当するデコはありません。</p>';
+}
+document.addEventListener('DOMContentLoaded',()=>{
+ const craftSection=document.getElementById('craft');if(!craftSection)return;
+ const panel=document.createElement('div');panel.className='panel';
+ panel.innerHTML='<div class="title">🏠 デコレシピ一覧</div><p class="mini">家具・装飾品を探せます。実機未確認の数値は確定扱いしません。</p><input id="decoFilter" class="search" placeholder="デコ名で検索"><div id="decoIndex"></div>';
+ craftSection.insertBefore(panel,craftSection.querySelector('select#craftName'));
+ panel.querySelector('#decoFilter').addEventListener('input',renderDecoIndex);
+ panel.addEventListener('click',e=>{
+  const btn=e.target.closest('button[data-deco-index]');if(!btn)return;
+  document.getElementById('craftName').value=btn.dataset.decoIndex;
+  craft();document.getElementById('craftName').scrollIntoView({block:'center',behavior:'smooth'});
+ });
+ renderDecoIndex();
+});
+
+/* Ver.8.9.43: deco intermediary materials and workbench checklist; quantities deliberately not guessed */
+document.addEventListener('DOMContentLoaded',()=>{
+ const craftSection=document.getElementById('craft');if(!craftSection)return;
+ const panel=document.createElement('div');panel.className='panel';
+ panel.innerHTML='<div class="title">🧩 デコ中間素材・製作台チェック</div>'+
+ '<p class="mini">登録済みのデコレシピから必要な中間素材を抽出します。中間素材自体の製作レシピと製作台の強化必要数は、未確認のため空欄です。</p>'+
+ '<div id="decoPartsChecklist"></div>'+
+ '<p class="mini">確認できた材料は「📦 在庫」または「📝 素材の簡易メモ」に登録できます。製作台の強化素材が判明したら「📚 メモ」に記録してください。</p>';
+ const decoIndex=document.getElementById('decoIndex');
+ if(decoIndex&&decoIndex.parentElement)decoIndex.parentElement.after(panel);
+ else craftSection.append(panel);
+ const names=new Set();
+ for(const r of C){
+  if(r[0]!=='デコ')continue;
+  for(let i=4;i<r.length-1;i+=2){
+   if(typeof r[i]==='string'&&/デコ製作部品|座標変換機|電気の結晶/.test(r[i]))names.add(r[i]);
+  }
+ }
+ for(const name of ['デコ製作部品','デコ製作部品+','上級デコ製作部品'])names.add(name);
+ const host=document.getElementById('decoPartsChecklist');
+ host.innerHTML=[...names].map(name=>{
+  const used=C.filter(r=>r[0]==='デコ'&&r.slice(4,-1).some((v,i)=>i%2===0&&v===name)).map(r=>r[1]);
+  return '<details><summary>'+esc(name)+'（使用先 '+used.length+'件）</summary>'+
+   '<div class="mini">使用先：'+(used.map(esc).join('、')||'現在の登録レシピにはなし')+'</div>'+
+   '<div class="mini">この素材の製作方法・必要数：未確認</div></details>';
+ }).join('');
+});
+
+/* 8.9.21: source catalog of deco lighting; NOT verified craft recipes */
+const DECO_LIGHT_CATALOG=["シンプルなキャンドルB", "シンプルなシーリングライト", "シンプルな壁掛け照明", "ハロウィンのシーリングライトA", "ハロウィンの卓上ランプA", "印象的な壁掛け照明", "上品なキャンドル", "心地よい壁掛けキャンドル", "心地よい壁掛け照明", "精巧な壁掛けランプ", "洗練されたキャンドル", "洗練されたシーリングライト", "落ち着いた壁掛けキャンドル", "立派なシャンデリア"];
+document.addEventListener('DOMContentLoaded',()=>{
+ const section=document.getElementById('craft');if(!section)return;
+ const panel=document.createElement('div');panel.className='panel';
+ panel.innerHTML='<div class="title">💡 照明デコ図鑑（名前確認済み・製作未確認）</div><p class="mini">日本語攻略データベース掲載名。製作可否・必要素材・個数は未照合です。レシピとして計算には含めません。</p><input class="edit space" id="lightDecoSearch" placeholder="照明デコを検索"><div id="lightDecoResults"></div><p class="mini">参考：<a href="https://colly.website/database/deco/" target="_blank" rel="noopener">デコデータベース</a></p>';
+ const target=document.getElementById('decoPartsChecklist');if(target&&target.parentElement)target.parentElement.after(panel);else section.append(panel);
+ const input=panel.querySelector('#lightDecoSearch'),host=panel.querySelector('#lightDecoResults');
+ function draw(){const q=input.value.trim().toLowerCase();const matches=DECO_LIGHT_CATALOG.filter(n=>n.toLowerCase().includes(q));host.innerHTML='<p class="mini">'+matches.length+'件（素材・製作条件は未確認）</p>'+matches.map((n,i)=>'<div class="line"><b>'+esc(n)+'</b><span class="mini"> 照明・図鑑掲載</span> <button type="button" class="btn2" data-light="'+DECO_LIGHT_CATALOG.indexOf(n)+'">入力欄に転記</button></div>').join('');}
+ input.addEventListener('input',draw);
+ host.addEventListener('click',e=>{const b=e.target.closest('[data-light]');if(!b)return;const n=DECO_LIGHT_CATALOG[Number(b.dataset.light)];document.getElementById('newCategory').value='デコ';document.getElementById('newCraftName').value=n;document.getElementById('newSkill').value='';document.getElementById('newLevel').value='';document.getElementById('newParts').value='';document.getElementById('newNote').value='照明デコ図鑑掲載・製作可否/素材/数量未確認 https://colly.website/database/deco/';document.getElementById('newCraftName').scrollIntoView({behavior:'smooth',block:'center'});});
+ draw();
+});
+
+/* Ver.8.9.43: catalog audit without speculative recipe quantities */
+function renderDecoAudit(){
+ const host=document.getElementById('decoAudit');if(!host)return;
+ const all=C.filter(r=>r[0]==='デコ');
+ const complete=all.filter(r=>{const p=partsOf(r);return p.length>0&&p.every(x=>Number.isFinite(x[1])&&x[1]>0)});
+ const incomplete=all.filter(r=>!complete.includes(r));
+ const query=(document.getElementById('decoAuditQuery')?.value||'').trim().toLowerCase();
+ const filter=document.getElementById('decoAuditFilter')?.value||'missing';
+ const rows=(filter==='all'?all:filter==='ready'?complete:incomplete).filter(r=>r[1].toLowerCase().includes(query));
+ host.innerHTML='<p class="mini">デコ登録 '+all.length+'件 ／ 素材数入り '+complete.length+'件 ／ 要確認 '+incomplete.length+'件</p>'+
+ (rows.slice(0,100).map(r=>'<div style="padding:7px 0;border-bottom:1px solid #7773"><b>'+esc(r[1])+'</b><div class="mini">'+(complete.includes(r)?'素材数入り・実機未検証':'素材・個数が未確認')+'</div></div>').join('')||'<p class="mini">該当するレシピはありません。</p>')+
+ (rows.length>100?'<p class="mini">先頭100件を表示。検索で絞り込んでください。</p>':'');
+}
+document.addEventListener('DOMContentLoaded',()=>{
+ const section=document.getElementById('craft');if(!section)return;
+ const panel=document.createElement('div');panel.className='panel';
+ panel.innerHTML='<div class="title">📋 デコ登録状況チェック</div><p class="mini">未入力の家具を一覧化。公開資料で確認できない数値は補完しません。</p><input id="decoAuditQuery" placeholder="家具名で絞り込み" style="width:100%;margin-bottom:6px"><select id="decoAuditFilter"><option value="missing">素材未確認のみ</option><option value="ready">素材数入り</option><option value="all">すべて</option></select><div id="decoAudit"></div>';
+ section.appendChild(panel);
+ panel.querySelector('input').addEventListener('input',renderDecoAudit);
+ panel.querySelector('select').addEventListener('change',renderDecoAudit);
+ renderDecoAudit();
+});
+
+/* Ver.8.9.43: multi-deco material planner, excludes unverified/blank quantities */
+document.addEventListener('DOMContentLoaded',()=>{
+ const section=document.getElementById('craft');if(!section)return;
+ const panel=document.createElement('div');panel.className='panel';
+ panel.innerHTML='<div class="title">🧮 デコまとめ製作・素材合計</div>'+
+ '<p class="mini">複数のデコを選ぶと必要素材を合算します。素材未確認のレシピは合計に混ぜず、別に表示します。</p>'+
+ '<input id="decoPlanSearch" placeholder="デコ名を検索" style="width:100%;margin-bottom:6px">'+
+ '<div id="decoPlanList" style="max-height:190px;overflow:auto"></div>'+
+ '<div id="decoPlanTotals" style="margin-top:8px"></div>'+
+ '<label style="display:block;margin:8px 0"><input id="decoShortOnly" type="checkbox" checked> 不足素材だけ表示</label>'+
+ '<div id="decoAcquireGroups" style="margin-top:10px"></div>'+
+ '<div id="decoExpanded"></div>'+
+ '<button type="button" id="decoCopyExpanded">加工後の原材料をコピー</button> '+
+ '<button type="button" id="decoPlanCopyGroups">入手方法別リストをコピー</button> '+
+ '<button type="button" id="decoPlanCopyShort">不足素材をコピー</button> '+
+ '<button type="button" id="decoPlanCopy">素材一覧をコピー</button>';
+ section.appendChild(panel);
+ const chosen=new Map();
+ const list=panel.querySelector('#decoPlanList'),totals=panel.querySelector('#decoPlanTotals');
+ let copyText='',shortText='',groupText='',expandedText='';
+ function isKnown(r){const p=partsOf(r);return p.length>0&&p.every(x=>Number.isFinite(x[1])&&x[1]>0)}
+ function draw(){
+  const q=panel.querySelector('#decoPlanSearch').value.trim().toLowerCase();
+  const items=C.map((r,i)=>({r,i})).filter(({r})=>r[0]==='デコ'&&r[1].toLowerCase().includes(q)).slice(0,80);
+  list.innerHTML=items.map(({r,i})=>'<div style="display:flex;align-items:center;gap:5px;padding:4px 0;border-bottom:1px solid #7773">'+
+   '<input type="checkbox" data-deco-select="'+i+'" '+(chosen.has(i)?'checked':'')+'>'+
+   '<span style="flex:1">'+esc(r[1])+(isKnown(r)?'':' <small>（素材未確認）</small>')+'</span>'+
+   '<input type="number" data-deco-qty="'+i+'" min="1" max="9999" value="'+(chosen.get(i)||1)+'" style="width:64px" aria-label="製作数"></div>').join('')||'<p class="mini">該当なし</p>';
+  calc();
+ }
+ function calc(){
+  const sum=new Map(),missing=[];
+  for(const [i,n] of chosen){
+   const r=C[i];if(!r||r[0]!=='デコ')continue;
+   if(!isKnown(r)){missing.push(r[1]+' ×'+n);continue}
+   for(const [name,qty] of partsOf(r))sum.set(name,(sum.get(name)||0)+qty*n);
+  }
+  const rows=[...sum.entries()].sort((a,b)=>a[0].localeCompare(b[0],'ja'));
+  const shortage=rows.map(([name,need])=>{
+   const have=Math.max(0,Math.floor(Number(saved.stock[name])||0));
+   return {name,need,have,short:Math.max(0,need-have)};
+  });
+  const shortRows=shortage.filter(x=>x.short>0);
+  // Expand registered processing recipes recursively, using the same inventory-aware planner as single-item craft.
+  // Pass gross needs: plan() subtracts stock once, including stock of intermediates.
+  const expanded=plan(rows.map(([name,need])=>[name,need]));
+  const expandedRaw=Object.entries(expanded.raw).sort((a,b)=>a[0].localeCompare(b[0],'ja'));
+  const expandedWarnings=[...new Set(expanded.unknown)];
+  const expandedSteps=expanded.steps;
+  expandedText='【デコまとめ製作：加工展開】\n'+
+   expandedSteps.map(x=>x.n+'：'+x.runs+'回加工 → '+x.produced+'個\n'+x.parts.map(p=>'  '+p[0]+' ×'+p[1]).join('\n')).join('\n')+
+   '\n【加工後に必要な原材料（在庫差引後）】\n'+
+   (expandedRaw.map(([name,n])=>name+' ×'+n).join('\n')||'なし')+
+   (expandedWarnings.length?'\n【加工レシピ未確認】\n'+expandedWarnings.join('\n'):'')+
+   (missing.length?'\n【素材未確認のデコ：集計対象外】\n'+missing.join('\n'):'');
+  const expandedHost=panel.querySelector('#decoExpanded');
+  expandedHost.innerHTML='<div class="title">🔩 加工素材を元の材料まで計算</div>'+ 
+   '<p class="mini">登録済みの加工レシピだけを再帰的に展開し、在庫を差し引きます。加工の完成数・材料数が不明な場合は未確認として停止します。</p>'+ 
+   (expandedSteps.map(x=>'<div class="line"><b>'+esc(x.n)+'：'+x.runs+'回加工 → '+x.produced+'個</b><div class="mini">'+x.parts.map(p=>esc(p[0])+' ×'+p[1]).join('、')+'</div><div class="mini">'+esc(x.source)+'</div></div>').join('')||'<p class="mini">展開できる加工工程はありません。</p>')+
+   '<div class="title">🌿 最終的に必要な原材料</div>'+ 
+   (expandedRaw.map(([name,n])=>'<div class="line row"><b>'+esc(name)+'</b><b>×'+n+'</b></div>').join('')||'<p class="mini">計算できる原材料の不足はありません。</p>')+
+   (expandedWarnings.length?'<p class="warn">⚠️ 加工数量未確認：'+expandedWarnings.map(esc).join('、')+'</p>':'')+
+   (missing.length?'<p class="warn">⚠️ デコ本体の素材未確認：'+missing.map(esc).join('、')+'</p>':'');
+
+  const selected=[...chosen].map(([i,n])=>C[i][1]+' ×'+n).join('\n');
+  const warnings=missing.length?'\n【未確認・集計対象外】\n'+missing.join('\n'):'';
+  copyText='【デコまとめ製作】\n'+selected+'\n【必要素材】\n'+
+   (rows.map(([name,n])=>name+' ×'+n).join('\n')||'素材数入りレシピの選択なし')+warnings;
+  shortText='【デコまとめ製作】\n'+selected+'\n【不足素材（在庫差引後）】\n'+
+   (shortRows.map(x=>x.name+' ×'+x.short+'（必要'+x.need+'／在庫'+x.have+'）').join('\n')||'計算できる不足素材なし')+warnings;
+  // This is a planning hint, not a claim of confirmed in-game acquisition methods.
+  const classify=(name)=>{
+   if(record(name))return ['🔩 加工候補','加工レシピ登録あり'];
+   if(/デコ製作部品|座標変換機|作業用弓鋸/.test(name))return ['🛒 購入・交換候補','入手方法はゲーム内で要確認'];
+   if(/丸太|鉱|羊毛|粘土|キノコ|蜜蝋|革|木材|花|草|石|綿|水|卵/.test(name))return ['🌿 採集候補','採集・加工の区別は要確認'];
+   return ['❔ 入手方法未確認','採集・加工・購入の判定待ち'];
+  };
+  const grouped=new Map();
+  for(const item of shortRows){const [category,hint]=classify(item.name);if(!grouped.has(category))grouped.set(category,[]);grouped.get(category).push({...item,hint});}
+  const order=['🌿 採集候補','🔩 加工候補','🛒 購入・交換候補','❔ 入手方法未確認'];
+  const groupHost=panel.querySelector('#decoAcquireGroups');
+  groupHost.innerHTML='<div class="title">🧭 不足素材の入手方法別チェック</div><p class="mini">自動分類は目安です。加工レシピ登録の有無・素材名から推定しており、入手先を確定するものではありません。</p>'+order.map(category=>{
+   const items=grouped.get(category)||[];
+   return '<details '+(items.length?'open':'')+'><summary>'+category+'（'+items.length+'種類）</summary>'+ (items.map(x=>'<div class="line"><b>'+esc(x.name)+'</b> ×'+x.short+'<div class="mini">'+esc(x.hint)+'</div></div>').join('')||'<p class="mini">該当なし</p>')+'</details>';
+  }).join('');
+  groupText='【デコ不足素材・入手方法別（推定）】\n'+order.map(category=>category+'\n'+((grouped.get(category)||[]).map(x=>x.name+' ×'+x.short+' ※'+x.hint).join('\n')||'該当なし')).join('\n')+warnings;
+  const only=panel.querySelector('#decoShortOnly').checked;
+  const display=only?shortRows:shortage;
+  totals.innerHTML='<div class="mini">選択 '+chosen.size+'種類／集計素材 '+rows.length+'種類／不足 '+shortRows.length+'種類</div>'+
+   (display.map(x=>'<div style="padding:5px 0;border-bottom:1px solid #7773"><b>'+esc(x.name)+'</b>　必要 '+x.need+' ／ 在庫 '+x.have+' ／ <b>不足 '+x.short+'</b></div>').join('')||'<p class="mini">'+(rows.length?'在庫で足りています。':'素材数入りのデコを選んでください。')+'</p>')+
+   (missing.length?'<p class="mini">⚠️ 未確認のため除外：'+missing.map(esc).join('、')+'</p>':'');
+ }
+ list.addEventListener('change',e=>{
+  const t=e.target,i=Number(t.dataset.decoSelect??t.dataset.decoQty);
+  if(!Number.isInteger(i)||!C[i])return;
+  if(t.hasAttribute('data-deco-select')){
+   if(t.checked)chosen.set(i,Number(list.querySelector('[data-deco-qty="'+i+'"]')?.value)||1);
+   else chosen.delete(i);
+  }else if(chosen.has(i))chosen.set(i,Math.max(1,Math.min(9999,Number(t.value)||1)));
+  draw();
+ });
+ panel.querySelector('#decoPlanSearch').addEventListener('input',draw);
+ panel.querySelector('#decoShortOnly').addEventListener('change',calc);
+ document.getElementById('stockResults')?.addEventListener('change',()=>calc());
+ panel.querySelector('#decoCopyExpanded').addEventListener('click',()=>{
+  if(!chosen.size){alert('デコを選んでください');return}
+  if(navigator.clipboard?.writeText)navigator.clipboard.writeText(expandedText).then(()=>alert('加工後の原材料をコピーしました')).catch(()=>prompt('コピーしてください',expandedText));
+  else prompt('コピーしてください',expandedText);
+ });
+ panel.querySelector('#decoPlanCopyGroups').addEventListener('click',()=>{
+  if(!chosen.size){alert('デコを選んでください');return}
+  if(navigator.clipboard?.writeText)navigator.clipboard.writeText(groupText).then(()=>alert('入手方法別リストをコピーしました')).catch(()=>prompt('コピーしてください',groupText));
+  else prompt('コピーしてください',groupText);
+ });
+ panel.querySelector('#decoPlanCopyShort').addEventListener('click',()=>{
+  if(!chosen.size){alert('デコを選んでください');return}
+  if(navigator.clipboard?.writeText)navigator.clipboard.writeText(shortText).then(()=>alert('不足素材をコピーしました')).catch(()=>prompt('コピーしてください',shortText));
+  else prompt('コピーしてください',shortText);
+ });
+ panel.querySelector('#decoPlanCopy').addEventListener('click',()=>{
+  if(!chosen.size){alert('デコを選んでください');return}
+  if(navigator.clipboard?.writeText)navigator.clipboard.writeText(copyText).then(()=>alert('素材一覧をコピーしました')).catch(()=>prompt('コピーしてください',copyText));
+  else prompt('コピーしてください',copyText);
+ });
+ draw();
+});
+
+/* Ver.8.9.43 floating memo: keep the existing memo data and controls. */
+document.addEventListener('DOMContentLoaded',()=>{
+ const panel=document.getElementById('quickMemoPanel');
+ if(!panel)return;
+ const head=panel.querySelector('.qm-head');
+ const launcher=document.createElement('button');launcher.id='floatMemoLaunch';launcher.type='button';launcher.textContent='📝 メモ';launcher.setAttribute('aria-label','素材の簡易メモを開く');
+ document.body.appendChild(launcher);
+ const close=document.createElement('button');close.type='button';close.className='float-close';close.textContent='×';close.setAttribute('aria-label','小窓を閉じる');head.appendChild(close);
+ const sizeButton=document.createElement('button');sizeButton.type='button';sizeButton.className='float-size';sizeButton.textContent='小さく';sizeButton.setAttribute('aria-label','小窓の大きさを切り替える');head.insertBefore(sizeButton,close);
+ const resetButton=document.createElement('button');resetButton.type='button';resetButton.className='float-reset';resetButton.textContent='位置戻す';resetButton.setAttribute('aria-label','小窓の位置を右上に戻す');head.insertBefore(resetButton,sizeButton);
+ const filterWrap=document.createElement('div');filterWrap.className='float-filter';
+ const filter=document.createElement('input');filter.type='search';filter.placeholder='🔎 メモを絞り込み';filter.setAttribute('aria-label','素材メモを名前で検索');filterWrap.appendChild(filter);
+ const zeroButton=document.createElement('button');zeroButton.type='button';zeroButton.className='float-zero';zeroButton.textContent='0個を隠す';zeroButton.setAttribute('aria-pressed','false');filterWrap.appendChild(zeroButton);
+ const sortSelect=document.createElement('select');sortSelect.className='float-sort';sortSelect.setAttribute('aria-label','素材メモの並べ替え');
+ [['added','登録順'],['name','名前順'],['qtyDesc','個数が多い順'],['qtyAsc','個数が少ない順']].forEach(([v,label])=>{const o=document.createElement('option');o.value=v;o.textContent=label;sortSelect.appendChild(o)});
+ sortSelect.value=qmSortMode;filterWrap.appendChild(sortSelect);
+ sortSelect.addEventListener('change',()=>{qmSortMode=sortSelect.value;try{localStorage.setItem('mabiFloatMemoSort',qmSortMode)}catch(e){}renderQuickMemo();filterRows()});
+ head.insertAdjacentElement('afterend',filterWrap);
+ const copyButton=document.createElement('button');copyButton.type='button';copyButton.className='float-copy';copyButton.textContent='📋 表示中をコピー';copyButton.setAttribute('aria-label','表示中の素材メモをコピー');filterWrap.appendChild(copyButton);
+ copyButton.addEventListener('click',async()=>{
+  const visible=[...document.querySelectorAll('#quickMemoRows .qm-row')].filter(row=>!row.classList.contains('float-filtered'));
+  const content=visible.map(row=>{const name=row.querySelector('b')?.textContent?.trim()||'';const qty=row.querySelector('input[type="number"]')?.value||'0';return name+' × '+qty}).join('\n');
+  if(!content){alert('コピーするメモがありません');return}
+  try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(content);alert('表示中のメモをコピーしました');return}}catch(e){}
+  prompt('長押ししてコピーしてください',content);
+ });
+
+ const memoRows=document.getElementById('quickMemoRows');
+ let hideZero=false;
+ function filterRows(){const q=filter.value.trim().toLocaleLowerCase('ja');for(const row of memoRows.querySelectorAll('.qm-row')){const name=row.querySelector('b')?.textContent||row.textContent||'';const qtyInput=row.querySelector('input[type="number"]');const zero=qtyInput&&Number(qtyInput.value)===0;row.classList.toggle('float-filtered', (!!q&&!name.toLocaleLowerCase('ja').includes(q))||(hideZero&&zero))}}
+ zeroButton.addEventListener('click',()=>{hideZero=!hideZero;zeroButton.setAttribute('aria-pressed',String(hideZero));zeroButton.textContent=hideZero?'0個を表示':'0個を隠す';try{localStorage.setItem('mabiFloatMemoHideZero',hideZero?'1':'0')}catch(e){}filterRows()});
+ try{hideZero=localStorage.getItem('mabiFloatMemoHideZero')==='1'}catch(e){}zeroButton.setAttribute('aria-pressed',String(hideZero));zeroButton.textContent=hideZero?'0個を表示':'0個を隠す';
+ memoRows.addEventListener('input',filterRows);memoRows.addEventListener('change',filterRows);
+ filter.addEventListener('input',filterRows);
+ new MutationObserver(filterRows).observe(memoRows,{childList:true});
+
+ document.body.appendChild(panel);panel.classList.add('floating-memo');
+ let settings={};try{settings=JSON.parse(localStorage.getItem('mabiFloatMemoUI')||'{}')||{}}catch(e){}
+ if(settings.compact){panel.classList.add('float-compact');sizeButton.textContent='大きく'}
+ if(Number.isFinite(settings.x)&&Number.isFinite(settings.y)){panel.style.left=settings.x+'px';panel.style.top=settings.y+'px';panel.style.right='auto'}
+ function saveUI(){try{const r=panel.getBoundingClientRect();localStorage.setItem('mabiFloatMemoUI',JSON.stringify({x:r.left,y:r.top,compact:panel.classList.contains('float-compact')}))}catch(e){}}
+ resetButton.addEventListener('click',()=>{panel.style.left='auto';panel.style.right='12px';panel.style.top='12px';requestAnimationFrame(()=>{clamp();saveUI()})});
+ sizeButton.addEventListener('click',()=>{panel.classList.toggle('float-compact');sizeButton.textContent=panel.classList.contains('float-compact')?'大きく':'小さく';requestAnimationFrame(()=>{clamp();saveUI()})});
+ let shown=false;
+ function clamp(){
+  if(!shown)return;
+  const r=panel.getBoundingClientRect();
+  const x=Math.min(Math.max(6,r.left),Math.max(6,innerWidth-r.width-6));
+  const y=Math.min(Math.max(6,r.top),Math.max(6,innerHeight-r.height-6));
+  panel.style.left=x+'px';panel.style.top=y+'px';panel.style.right='auto';
+ }
+ function show(on){shown=on;panel.classList.toggle('float-hidden',!on);launcher.hidden=on;
+  if(on){const body=document.getElementById('quickMemoBody');if(body.hidden)document.getElementById('qmToggle').click();requestAnimationFrame(clamp)}
+ }
+ show(false);
+ launcher.addEventListener('click',()=>show(true));close.addEventListener('click',()=>show(false));
+ let drag=null;
+ head.addEventListener('pointerdown',e=>{
+  if(e.target.closest('button')||e.button!==0)return;
+  const r=panel.getBoundingClientRect();drag={id:e.pointerId,dx:e.clientX-r.left,dy:e.clientY-r.top};
+  head.setPointerCapture(e.pointerId);e.preventDefault();
+ });
+ head.addEventListener('pointermove',e=>{
+  if(!drag||e.pointerId!==drag.id)return;
+  const w=panel.offsetWidth,h=panel.offsetHeight;
+  panel.style.left=Math.min(Math.max(6,e.clientX-drag.dx),Math.max(6,innerWidth-w-6))+'px';
+  panel.style.top=Math.min(Math.max(6,e.clientY-drag.dy),Math.max(6,innerHeight-h-6))+'px';
+  panel.style.right='auto';
+ });
+ function stop(e){if(drag&&drag.id===e.pointerId){drag=null;saveUI()}}
+ head.addEventListener('pointerup',stop);head.addEventListener('pointercancel',stop);
+ window.addEventListener('resize',()=>requestAnimationFrame(()=>{clamp();saveUI()}));
+});
+
+/* Ver.8.9.43: favorite materials for one-tap quick memo entry */
+document.addEventListener('DOMContentLoaded',()=>{
+ const add=document.querySelector('#quickMemoBody .qm-add');
+ if(!add||!document.getElementById('qmName'))return;
+ const picker=document.createElement('div');picker.id='qmQuickPick';
+ picker.innerHTML='<div class="qm-pick-head"><b>⭐ よく使う素材をすぐ追加（＋1個）</b></div><input class="edit" type="search" id="qmPickSearch" placeholder="素材名を探す" aria-label="追加する素材を検索"><div class="qm-pick-note">☆でお気に入り登録。＋を押すと1個追加します。</div><div class="qm-pick-list" id="qmPickList"></div>';
+ add.insertAdjacentElement('afterend',picker);
+ const input=picker.querySelector('#qmPickSearch'),list=picker.querySelector('#qmPickList');
+ const storageKey='mabiQuickMemoFavoritesV1';
+ let favorites=[];
+ try{const v=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray(v))favorites=v.filter(x=>typeof x==='string').slice(0,100)}catch(e){}
+ const known=[...new Set([...(typeof names!=='undefined'?names:[]),...Object.keys(typeof R!=='undefined'?R:{}),...((typeof saved!=='undefined'&&Array.isArray(saved.quickMemo))?saved.quickMemo.map(x=>x.name):[])])].filter(Boolean);
+ function draw(){
+  const q=input.value.trim().toLocaleLowerCase('ja');
+  const recent=((typeof saved!=='undefined'&&Array.isArray(saved.quickMemo))?saved.quickMemo.map(x=>x.name):[]).reverse();
+  const choices=[...new Set([...favorites,...recent,...known])].filter(n=>!q||n.toLocaleLowerCase('ja').includes(q)).slice(0,24);
+  list.replaceChildren();
+  choices.forEach(name=>{
+   const wrap=document.createElement('span');wrap.className='qm-pick-item';
+   const star=document.createElement('button');star.type='button';star.className='qm-pick-star';star.textContent=favorites.includes(name)?'★':'☆';star.setAttribute('aria-label',name+'のお気に入り切替');star.setAttribute('aria-pressed',String(favorites.includes(name)));
+   star.addEventListener('click',()=>{favorites=favorites.includes(name)?favorites.filter(n=>n!==name):[name,...favorites].slice(0,100);try{localStorage.setItem(storageKey,JSON.stringify(favorites))}catch(e){}draw()});
+   const b=document.createElement('button');b.type='button';b.textContent='＋ '+name;b.addEventListener('click',()=>{document.getElementById('qmName').value=name;document.getElementById('qmQty').value='1';qmAdd();draw()});
+   wrap.append(star,b);list.appendChild(wrap);
+  });
+  if(!choices.length){const msg=document.createElement('span');msg.className='mini';msg.textContent='候補がありません。上の素材名欄から自由入力できます。';list.appendChild(msg)}
+ }
+ input.addEventListener('input',draw);draw();
+});
+
+/* Ver.8.9.43: user-defined daily/weekly/one-off checklist. No fabricated game tasks. */
+document.addEventListener('DOMContentLoaded',()=>{
+ const panel=document.getElementById('quickMemoPanel');if(!panel)return;
+ const todo=document.createElement('details');todo.id='dailyTodo';todo.open=true;
+ todo.innerHTML=`<summary>✅ やることメモ <span id="todoCount"></span></summary>
+ <div class="todo-add"><input id="todoNew" type="text" maxlength="120" placeholder="例：デイリー報酬を受け取る" aria-label="やることを入力"><select id="todoCycle" aria-label="繰り返し"><option value="daily">毎日</option><option value="weekly">毎週</option><option value="once">1回だけ</option></select><button type="button" id="todoAdd">追加</button></div>
+ <details class="todo-presets"><summary>⚡ よく使う項目をワンタップ登録</summary><div class="todo-preset-buttons" id="todoPresetButtons"></div><div class="todo-preset-status" id="todoPresetStatus">例として用意した項目です。必要なものだけ追加してください。</div></details>
+ <div class="todo-filters" role="group" aria-label="やることの表示切替"><button type="button" data-todo-view="all" aria-pressed="true">すべて</button><button type="button" data-todo-view="pending" aria-pressed="false">未完了</button><button type="button" data-todo-view="daily" aria-pressed="false">毎日</button><button type="button" data-todo-view="weekly" aria-pressed="false">毎週</button><button type="button" data-todo-view="once" aria-pressed="false">1回</button></div><div class="todo-sort"><label for="todoSort">並び順</label><select id="todoSort" aria-label="やることの並び順"><option value="registered">登録順</option><option value="pending">未完了を先に</option><option value="cycle">毎日・毎週・1回の順</option><option value="name">名前順</option></select></div><div id="todoRows"></div><div class="todo-actions"><span class="todo-progress" id="todoProgress"></span><button type="button" id="todoReset">チェックを解除</button></div>
+ <p class="mini">毎日は日付が変わると、毎週は月曜日になるとチェックが自動で戻ります。1回だけの項目はそのまま残ります。</p>`;
+ const filter=panel.querySelector('.float-filter');if(filter)filter.insertAdjacentElement('beforebegin',todo);else panel.querySelector('.qm-head').insertAdjacentElement('afterend',todo);
+ const key='mabiTodoChecklistV1';
+ let items=[];try{const v=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(v))items=v.filter(x=>x&&typeof x.text==='string').map(x=>({id:String(x.id),text:x.text.slice(0,120),cycle:['daily','weekly','once'].includes(x.cycle)?x.cycle:'daily',done:!!x.done,period:String(x.period||'')})).slice(0,200)}catch(e){}
+ const $=id=>todo.querySelector('#'+id);
+ const day=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
+ const week=()=>{const d=new Date();d.setHours(12,0,0,0);const wd=(d.getDay()+6)%7;d.setDate(d.getDate()-wd);return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
+ const period=cycle=>cycle==='daily'?day():cycle==='weekly'?week():'once';
+ function sync(){let changed=false;for(const item of items){const p=period(item.cycle);if(item.period!==p){item.period=p;if(item.cycle!=='once')item.done=false;changed=true}}if(changed)save(false)}
+ function save(draw=true){try{localStorage.setItem(key,JSON.stringify(items))}catch(e){}if(draw)render()}
+ const labels={daily:'毎日',weekly:'毎週',once:'1回'};
+ const viewKey='mabiTodoViewV1';let view='all';try{const v=localStorage.getItem(viewKey);if(['all','pending','daily','weekly','once'].includes(v))view=v}catch(e){}
+ todo.querySelectorAll('[data-todo-view]').forEach(b=>b.addEventListener('click',()=>{view=b.dataset.todoView;try{localStorage.setItem(viewKey,view)}catch(e){}render()}));
+ const sortKey='mabiTodoSortV1';let sort='registered';try{const v=localStorage.getItem(sortKey);if(['registered','pending','cycle','name'].includes(v))sort=v}catch(e){}
+ $('todoSort').value=sort;
+ $('todoSort').addEventListener('change',()=>{sort=$('todoSort').value;try{localStorage.setItem(sortKey,sort)}catch(e){}render()});
+ function render(){sync();const rows=$('todoRows');rows.replaceChildren();let count=items.filter(x=>x.done).length;
+  todo.querySelectorAll('[data-todo-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.todoView===view)));
+  const visible=items.filter(item=>view==='all'||(view==='pending'?!item.done:item.cycle===view));
+  const cycleRank={daily:0,weekly:1,once:2};
+  if(sort==='pending')visible.sort((a,b)=>Number(a.done)-Number(b.done));
+  else if(sort==='cycle')visible.sort((a,b)=>cycleRank[a.cycle]-cycleRank[b.cycle]);
+  else if(sort==='name')visible.sort((a,b)=>a.text.localeCompare(b.text,'ja'));
+  for(const item of visible){const line=document.createElement('div');line.className='todo-line'+(item.done?' done':'');
+   const check=document.createElement('input');check.type='checkbox';check.checked=item.done;check.setAttribute('aria-label',item.text+' 完了');check.addEventListener('change',()=>{item.done=check.checked;save()});
+   const label=document.createElement('label');label.textContent=item.text;label.addEventListener('click',()=>{check.checked=!check.checked;item.done=check.checked;save()});
+   const cycle=document.createElement('small');cycle.textContent=labels[item.cycle];
+   const del=document.createElement('button');del.type='button';del.className='todo-del';del.textContent='×';del.setAttribute('aria-label',item.text+'を削除');del.addEventListener('click',()=>{items=items.filter(x=>x.id!==item.id);save()});
+   line.append(check,label,cycle,del);rows.appendChild(line);
+  }
+  $('todoCount').textContent=`${count}/${items.length}`;$('todoProgress').textContent=`完了 ${count} / ${items.length}`;
+  if(!visible.length){const msg=document.createElement('p');msg.className='mini';msg.textContent=items.length?'この表示条件に当てはまる項目はありません。':'やることを追加するとチェック欄が表示されます。';rows.appendChild(msg)}
+ }
+ function add(){const input=$('todoNew');const name=input.value.trim();if(!name)return; if(items.length>=200){alert('200件まで登録できます');return}const cycle=$('todoCycle').value;items.push({id:String(Date.now())+'-'+Math.random().toString(36).slice(2),text:name,cycle,done:false,period:period(cycle)});input.value='';save()}
+ const presets=[
+  ['デイリー報酬を受け取る','daily'],['デイリー任務を確認','daily'],['採集をする','daily'],['製作・加工をする','daily'],
+  ['ウィークリー任務を確認','weekly'],['週間報酬を受け取る','weekly'],['イベント報酬を確認','once']
+ ];
+ const presetWrap=$('todoPresetButtons');
+ for(const [name,cycle] of presets){const b=document.createElement('button');b.type='button';b.textContent='＋ '+name+'（'+labels[cycle]+'）';
+  b.addEventListener('click',()=>{if(items.some(x=>x.text===name&&x.cycle===cycle)){$('todoPresetStatus').textContent='「'+name+'」は登録済みです';return}
+   if(items.length>=200){$('todoPresetStatus').textContent='200件まで登録できます';return}
+   items.push({id:String(Date.now())+'-'+Math.random().toString(36).slice(2),text:name,cycle,done:false,period:period(cycle)});
+   $('todoPresetStatus').textContent='「'+name+'」を追加しました';save()});presetWrap.appendChild(b)}
+ $('todoAdd').addEventListener('click',add);$('todoNew').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();add()}});
+ $('todoReset').addEventListener('click',()=>{for(const item of items)item.done=false;save()});
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});window.addEventListener('focus',render);
+ render();
+});
 </script></body></html>
